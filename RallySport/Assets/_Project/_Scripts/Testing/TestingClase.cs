@@ -5,6 +5,7 @@ public class TestingClase : MonoBehaviour
     [SerializeField] private float _acceleration;
     [SerializeField] private float _totalAcceleration;
 
+    private float _velocity;
     private float _currentAcceleration;
     private float _maxAcceleration;
 
