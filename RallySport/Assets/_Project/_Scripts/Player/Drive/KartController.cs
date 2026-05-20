@@ -1,0 +1,174 @@
+using UnityEngine;
+using UnityEngine.InputSystem;
+
+[RequireComponent(typeof(CharacterController))]
+public class KartController : MonoBehaviour
+{
+    [Header("Movement")]
+    [SerializeField] private float acceleration = 25f;
+    [SerializeField] private float maxSpeed = 20f;
+    [SerializeField] private float reverseSpeed = 8f;
+    [SerializeField] private float brakeForce = 40f;
+
+    [Header("Steering")]
+    [SerializeField] private float steeringPower = 120f;
+    [SerializeField] private float driftSteeringMultiplier = 1.4f;
+
+    [Header("Traction")]
+    [Range(0f, 1f)]
+    [SerializeField] private float normalTraction = 0.92f;
+
+    [Range(0f, 1f)]
+    [SerializeField] private float driftTraction = 0.82f;
+
+    private CharacterController controller;
+
+    // INPUTS
+    private Vector2 moveInput;
+    private bool driftPressed;
+    private bool brakePressed;
+
+    // VELOCITY
+    private Vector3 velocity;
+
+    private void Awake()
+    {
+        controller = GetComponent<CharacterController>();
+    }
+
+    private void Update()
+    {
+        HandleMovement();
+        MoveKart();
+    }
+
+    // =========================
+    // INPUT SYSTEM
+    // =========================
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<Vector2>();
+    }
+
+    public void OnDrift(InputAction.CallbackContext context)
+    {
+        driftPressed = context.ReadValueAsButton();
+    }
+
+    public void OnBrake(InputAction.CallbackContext context)
+    {
+        brakePressed = context.ReadValueAsButton();
+    }
+
+    // =========================
+    // MOVEMENT
+    // =========================
+
+    private void HandleMovement()
+    {
+        float forwardInput = moveInput.y;
+        float steerInput = moveInput.x;
+
+        Vector3 forwardVelocity =
+            transform.forward *
+            Vector3.Dot(velocity, transform.forward);
+        //@Sebas, la velocidad lateral es para que haga el Drift
+        Vector3 lateralVelocity =
+            transform.right *
+            Vector3.Dot(velocity, transform.right);
+
+        // =========================
+        // ACCELERATION
+        // =========================
+
+        if (forwardInput != 0f)
+        {
+            forwardVelocity +=
+                transform.forward *
+                forwardInput *
+                acceleration *
+                Time.deltaTime;
+        }
+
+        // =========================
+        // BRAKE
+        // =========================
+
+        if (brakePressed)
+        {
+            forwardVelocity = Vector3.MoveTowards(
+                forwardVelocity,
+                Vector3.zero,
+                brakeForce * Time.deltaTime
+            );
+        }
+
+        // =========================
+        // SPEED LIMIT
+        // =========================
+
+        float currentForwardSpeed =
+            Vector3.Dot(forwardVelocity, transform.forward);
+
+        currentForwardSpeed = Mathf.Clamp(
+            currentForwardSpeed,
+            -reverseSpeed,
+            maxSpeed
+        );
+
+        forwardVelocity =
+            transform.forward * currentForwardSpeed;
+
+        // =========================
+        // TRACTION / DRIFT
+        // =========================
+
+        float traction =
+        //Esto es un operador ternario, 
+        // si el drift esta presionado se usa la traccion de drift, 
+        // sino se usa la traccion normal
+            driftPressed ? driftTraction : normalTraction;
+
+        lateralVelocity *= traction;
+
+        // =========================
+        // FINAL VELOCITY
+        // =========================
+
+        velocity = forwardVelocity + lateralVelocity;
+
+        // =========================
+        // STEERING
+        // =========================
+
+        //@STV, por aqui revisa lo de la aceleracion, si tienes dudas preguntame @Penia
+        float speedPercent =
+        //Esto es para que a medida que el kart se acerque a su velocidad maxima, 
+        // la capacidad de giro disminuya
+            Mathf.Clamp01(
+                Mathf.Abs(currentForwardSpeed) / maxSpeed
+            );
+
+        float steerMultiplier =
+            driftPressed ? driftSteeringMultiplier : 1f;
+
+        float rotation =
+            steerInput *
+            steeringPower *
+            steerMultiplier *
+            speedPercent *
+            Time.deltaTime;
+
+        transform.Rotate(0f, rotation, 0f);
+    }
+
+    // =========================
+    // APPLY MOVEMENT
+    // =========================
+
+    private void MoveKart()
+    {
+        controller.Move(velocity * Time.deltaTime);
+    }
+}
