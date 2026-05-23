@@ -6,7 +6,7 @@
             <ui:Label text="&lt;color=#FDCA40&gt;P&lt;/color&gt;ROJECT" name="TitlePart1" class="title-text title-part1"/>
             <ui:Label text="&lt;color=#FDCA40&gt;R&lt;/color&gt;ALLY" name="TitlePart2" class="title-text title-part2"/>
         </ui:VisualElement>
-        <ui:VisualElement name="MainMenuButtonContainer" class="main-menu-buttons-container">
+        <ui:VisualElement name="MainMenuButtonContainer" class="main-menu-buttons-container" style="align-items: center;">
             <ui:VisualElement name="PlayButtonShadow" class="button-shadow">
                 <ui:Button text="Play" name="PlayButton" class="menu-button"/>
             </ui:VisualElement>
