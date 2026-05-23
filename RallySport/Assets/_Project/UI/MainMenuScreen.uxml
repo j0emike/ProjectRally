@@ -1,0 +1,22 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Project/UI/SharedStyles.uss?fileID=7433441132597879392&amp;guid=84d83a6b86e55c64d98c96216e6e7e52&amp;type=3#SharedStyles"/>
+    <ui:VisualElement name="MainMenuContainer" class="main-menu-container" style="flex-grow: 1;">
+        <ui:VisualElement name="HeaderContainer" style="flex-grow: 1;">
+            <ui:Label text="Project Rally&#10;&#10;" name="TitleText"/>
+        </ui:VisualElement>
+        <ui:VisualElement name="ButtonsContainer" class="buttons-container">
+            <ui:VisualElement name="PlayButtonShadow" class="button-shadow">
+                <ui:Button text="Button" name="PlayButton" class="menu-button"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="SettingsButtonShadow" class="button-shadow">
+                <ui:Button text="Button" name="SettingsButton" class="menu-button"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="CreditsButtonShadow" class="button-shadow">
+                <ui:Button text="Button" name="CreditsButton" class="menu-button"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="ExitButtonShadow" class="button-shadow">
+                <ui:Button text="Button" name="ExitButton" class="menu-button"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
