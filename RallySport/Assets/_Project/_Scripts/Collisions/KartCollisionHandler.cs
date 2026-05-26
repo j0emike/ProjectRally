@@ -26,7 +26,7 @@ public class KartCollisionHandler : MonoBehaviour
         {
             if(_kartController.Velocity.magnitude >= _minSpeedToDestroy)
             {
-                Wall.BreakWall();
+                Wall.BreakWall(hit.point);
             }
             else
             {

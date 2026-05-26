@@ -484,6 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d7ca258133d08743850a5f77e10b465, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestructibleWall
+  destructionVFXPrefab: {fileID: 4271568640609787098, guid: a38fcb027d7d5014496a021fdfe75207, type: 3}
 --- !u!1001 &1678303303
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -574,7 +575,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KartCollisionHandler
   _bounceForce: 0.3
-  _minSpeedToDestroy: 100
+  _minSpeedToDestroy: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
