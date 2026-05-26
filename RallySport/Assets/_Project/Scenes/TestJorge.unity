@@ -485,6 +485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DestructibleWall
   destructionVFXPrefab: {fileID: 4271568640609787098, guid: a38fcb027d7d5014496a021fdfe75207, type: 3}
+  bounceVFXPrefab: {fileID: 5287384314087115316, guid: 1afa549106bea5743879a7b52d9dc186, type: 3}
 --- !u!1001 &1678303303
 PrefabInstance:
   m_ObjectHideFlags: 0
