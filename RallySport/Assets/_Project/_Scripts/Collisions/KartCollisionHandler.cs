@@ -26,11 +26,12 @@ public class KartCollisionHandler : MonoBehaviour
         {
             if(_kartController.Velocity.magnitude >= _minSpeedToDestroy)
             {
-                Wall.BreakWall(hit.point);
+                Wall.BreakWall(hit.point, hit.normal);
             }
             else
             {
                 _kartController.ApplyBounce(Vector3.Reflect(_kartController.Velocity * _bounceForce, hit.normal));
+                Wall.BounceWall(hit.point, hit.normal);
             }
         }
     }
