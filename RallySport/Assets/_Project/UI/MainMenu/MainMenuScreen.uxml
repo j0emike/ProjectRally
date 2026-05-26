@@ -1,6 +1,6 @@
 <ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <Style src="project://database/Assets/_Project/UI/SharedStyles.uss?fileID=7433441132597879392&amp;guid=84d83a6b86e55c64d98c96216e6e7e52&amp;type=3#SharedStyles"/>
-    <Style src="project://database/Assets/_Project/UI/MainMenuStyles.uss?fileID=7433441132597879392&amp;guid=999168acf7d1f0e458d087d075da1982&amp;type=3#MainMenuStyles"/>
+    <Style src="project://database/Assets/_Project/UI/MainMenu/MainMenuStyles.uss?fileID=7433441132597879392&amp;guid=999168acf7d1f0e458d087d075da1982&amp;type=3#MainMenuStyles"/>
     <ui:VisualElement name="MainMenuContainer" class="main-menu-container">
         <ui:VisualElement name="HeaderContainer" class="header-container">
             <ui:Label text="&lt;color=#FDCA40&gt;P&lt;/color&gt;ROJECT" name="TitlePart1" class="title-text title-part1"/>
