@@ -1,0 +1,46 @@
+.header-container {
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title-text {
+    -unity-font-definition: url("project://database/Assets/_Project/Fonts/Orbitron/Orbitron-VariableFont_wght%20SDF.asset?fileID=11400000&guid=831078679d699f44f956ac3100317fb1&type=2#Orbitron-VariableFont_wght SDF");
+    font-size: 100px;
+    color: #DEDEDE;
+    -unity-text-align: middle-center;
+    margin: 0;
+    padding: 0;
+}
+
+.title-part1 {
+}
+
+.title-part2 {
+    margin-top: -20px;
+}
+
+.main-menu-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 680px;
+    max-width: 100%;
+    background-color: rgba(0, 0, 0, 1);
+    border-right-width: 1px;
+    border-right-color: #ffffffff;
+    padding-left: 50px;
+    padding-right: 50px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-menu-buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}

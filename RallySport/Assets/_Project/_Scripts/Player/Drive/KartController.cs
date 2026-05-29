@@ -18,6 +18,10 @@ public class KartController : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] private float normalTraction = 0.92f;
 
+    [Header("Deceleration")]
+    [SerializeField] private float _deceleration;
+
+    [Header("Drift")]
     [Range(0f, 1f)]
     [SerializeField] private float driftTraction = 0.82f;
 
@@ -104,6 +108,19 @@ public class KartController : MonoBehaviour
             );
         }
 
+         // =========================
+        // DESACELERACION - JORGE
+        // =========================
+
+        if(forwardInput == 0f && !brakePressed)
+        {
+            forwardVelocity = Vector3.MoveTowards(
+                forwardVelocity,
+                Vector3.zero,
+                _deceleration * Time.deltaTime
+            );
+        }
+
         // =========================
         // SPEED LIMIT
         // =========================
@@ -170,5 +187,16 @@ public class KartController : MonoBehaviour
     private void MoveKart()
     {
         controller.Move(velocity * Time.deltaTime);
+    }
+
+    // =========================
+    // COLLISIONS - Jorge :)
+    // =========================
+
+    public Vector3 Velocity => velocity;
+    public void ApplyBounce(Vector3 BouncingVelocity)
+    {
+        Debug.Log("Bouncing"); 
+        velocity = BouncingVelocity;
     }
 }
