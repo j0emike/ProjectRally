@@ -28,7 +28,7 @@
                                 <ui:VisualElement class="level-lock-icon" picking-mode="Ignore"/>
                             </ui:VisualElement>
                         </ui:VisualElement>
-                        <ui:Label text="PLAY" picking-mode="Ignore" class="level-button"/>
+                        <ui:Label text="DESERT" picking-mode="Ignore" class="level-button"/>
                     </ui:Button>
                     <ui:Button name="LevelContainer2" class="level-container">
                         <ui:VisualElement name="LevelImg" picking-mode="Ignore" class="level-img level-img-jungle">
@@ -36,7 +36,7 @@
                                 <ui:VisualElement class="level-lock-icon" picking-mode="Ignore"/>
                             </ui:VisualElement>
                         </ui:VisualElement>
-                        <ui:Label text="PLAY" picking-mode="Ignore" class="level-button"/>
+                        <ui:Label text="JUNGLE" picking-mode="Ignore" class="level-button"/>
                     </ui:Button>
                     <ui:Button name="LevelContainer3" class="level-container is-locked">
                         <ui:VisualElement name="LevelImg" picking-mode="Ignore" class="level-img level-img-tundra">
@@ -44,7 +44,7 @@
                                 <ui:VisualElement class="level-lock-icon" picking-mode="Ignore"/>
                             </ui:VisualElement>
                         </ui:VisualElement>
-                        <ui:Label text="LOCKED" picking-mode="Ignore" class="level-button"/>
+                        <ui:Label text="TUNDRA" picking-mode="Ignore" class="level-button"/>
                     </ui:Button>
                 </ui:VisualElement>
                 <ui:VisualElement class="levels-row row-centered">
@@ -54,15 +54,15 @@
                                 <ui:VisualElement class="level-lock-icon" picking-mode="Ignore"/>
                             </ui:VisualElement>
                         </ui:VisualElement>
-                        <ui:Label text="LOCKED" picking-mode="Ignore" class="level-button"/>
+                        <ui:Label text="FOREST" picking-mode="Ignore" class="level-button"/>
                     </ui:Button>
                     <ui:Button name="LevelContainer5" class="level-container is-locked">
-                        <ui:VisualElement name="LevelImg" picking-mode="Ignore" class="level-img level-img-forest">
+                        <ui:VisualElement name="LevelImg" picking-mode="Ignore" class="level-img level-img-snow">
                             <ui:VisualElement class="level-lock-overlay" picking-mode="Ignore">
                                 <ui:VisualElement class="level-lock-icon" picking-mode="Ignore"/>
                             </ui:VisualElement>
                         </ui:VisualElement>
-                        <ui:Label text="LOCKED" picking-mode="Ignore" class="level-button"/>
+                        <ui:Label text="SNOW" picking-mode="Ignore" class="level-button"/>
                     </ui:Button>
                 </ui:VisualElement>
             </ui:VisualElement>
