@@ -252,3 +252,91 @@
 .exitgame-icon {
     background-image: url("project://database/Assets/_Project/Art/2D/Icons/ExitGameIcon.svg");
 }
+
+/* --- Notification Pop-up --- */
+.notification-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(10, 10, 10, 0.85);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    display: none;
+    transition-property: opacity;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out-cubic;
+}
+
+.notification-overlay.is-visible {
+    display: flex;
+    opacity: 1;
+}
+
+.notification-box {
+    background-color: rgb(22, 22, 22);
+    border-width: 4px;
+    border-color: rgb(253, 202, 64);
+    border-radius: 20px;
+    padding: 35px;
+    align-items: center;
+    justify-content: center;
+    width: 460px;
+    max-width: 90%;
+    scale: 0.8;
+    transition-property: scale;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out-back;
+}
+
+.notification-overlay.is-visible .notification-box {
+    scale: 1;
+}
+
+.notification-icon {
+    width: 80px;
+    height: 80px;
+    background-image: url("project://database/Assets/_Project/Art/2D/Icons/LockIcon.svg");
+    -unity-background-image-tint-color: rgb(253, 202, 64);
+    margin-bottom: 20px;
+}
+
+.notification-title {
+    -unity-font-definition: url("project://database/Assets/_Project/Fonts/Orbitron/Orbitron-VariableFont_wght%20SDF.asset?fileID=11400000&guid=831078679d699f44f956ac3100317fb1&type=2#Orbitron-VariableFont_wght SDF");
+    font-size: 32px;
+    color: rgb(253, 202, 64);
+    margin-bottom: 15px;
+    -unity-text-align: middle-center;
+}
+
+.notification-message {
+    -unity-font-definition: url("project://database/Assets/_Project/Fonts/Orbitron/Orbitron-VariableFont_wght%20SDF.asset?fileID=11400000&guid=831078679d699f44f956ac3100317fb1&type=2#Orbitron-VariableFont_wght SDF");
+    font-size: 16px;
+    color: rgb(222, 222, 222);
+    margin-bottom: 25px;
+    -unity-text-align: middle-center;
+    white-space: normal;
+}
+
+.notification-close-btn {
+    -unity-font-definition: url("project://database/Assets/_Project/Fonts/AlfaSlabOne/AlfaSlabOne-Regular%20SDF.asset?fileID=11400000&guid=924c06fc2ad1cc245b4a7fcc30131aa6&type=2#AlfaSlabOne-Regular SDF");
+    font-size: 24px;
+    background-color: rgb(253, 202, 64);
+    color: rgb(17, 17, 17);
+    border-width: 0;
+    border-radius: 10px;
+    padding: 10px 40px;
+    transition-property: scale, background-color;
+    transition-duration: 0.15s;
+}
+
+.notification-close-btn:hover {
+    scale: 1.05;
+    background-color: rgb(253, 211, 93);
+}
+
+.notification-close-btn:active {
+    scale: 0.95;
+}
