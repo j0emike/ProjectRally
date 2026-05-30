@@ -16,14 +16,21 @@ public class KartController : MonoBehaviour
 
     [Header("Traction")]
     [Range(0f, 1f)]
-    [SerializeField] private float normalTraction = 0.92f;
+    [SerializeField] public float normalTraction = 0.92f;
 
     [Header("Deceleration")]
-    [SerializeField] private float _deceleration;
+    [SerializeField] public float _deceleration;
 
     [Header("Drift")]
     [Range(0f, 1f)]
-    [SerializeField] private float driftTraction = 0.82f;
+    [SerializeField] public float driftTraction = 0.82f;
+
+    // =========================
+    // FloorTypes conection by Gonzalinio
+    // =========================
+    public float NormalTraction { get => normalTraction; set => normalTraction = Mathf.Clamp01(value); }
+    public float DriftTraction { get => driftTraction; set => driftTraction = Mathf.Clamp01(value); }
+    public float Deceleration { get => _deceleration; set => _deceleration = value; }
 
     private CharacterController controller;
 
