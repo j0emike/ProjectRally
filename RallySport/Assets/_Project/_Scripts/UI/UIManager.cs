@@ -7,10 +7,10 @@ public class UIManager : MonoBehaviour
     [Header("UI Templates")]
     [SerializeField] private VisualTreeAsset mainMenuTemplate;
     [SerializeField] private VisualTreeAsset levelSelectionTemplate;
+    [SerializeField] private VisualTreeAsset settingsTemplate;
 
     private UIDocument uiDocument;
     private VisualElement root;
-
 
     private VisualElement notificationOverlay;
     private IVisualElementScheduledItem notificationTimer;
@@ -141,6 +141,92 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    public void ShowSettings()
+    {
+        if (settingsTemplate == null)
+        {
+            Debug.LogError("SettingsTemplate is not assigned in UIManager!");
+            return;
+        }
+
+        SwitchView(settingsTemplate);
+
+        // Core Containers
+        var settingsButtonsContainer = root.Q<VisualElement>("SettingsButtonsContainer");
+        var audioPanelContainer = root.Q<VisualElement>("AudioPanelContainer");
+
+        // Menu Buttons
+        var audioButton = root.Q<Button>("AudioButton");
+        var controlsButton = root.Q<Button>("ControlsButton");
+        var backButton = root.Q<Button>("BackButton");
+
+        // Audio Sub-panel Elements
+        var audioBackButton = root.Q<Button>("AudioBackButton");
+        var masterVolumeSlider = root.Q<Slider>("MasterVolumeSlider");
+        var musicVolumeSlider = root.Q<Slider>("MusicVolumeSlider");
+        var sfxVolumeSlider = root.Q<Slider>("SFXVolumeSlider");
+
+        // Load saved values
+        if (masterVolumeSlider != null) masterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume", 0.8f);
+        if (musicVolumeSlider != null) musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.7f);
+        if (sfxVolumeSlider != null) sfxVolumeSlider.value = PlayerPrefs.GetFloat("SFXVolume", 0.9f);
+
+        // Submenu navigation
+        if (audioButton != null && settingsButtonsContainer != null && audioPanelContainer != null)
+        {
+            audioButton.clicked += () =>
+            {
+                settingsButtonsContainer.AddToClassList("is-hidden");
+                audioPanelContainer.RemoveFromClassList("is-hidden");
+            };
+        }
+
+        if (audioBackButton != null && settingsButtonsContainer != null && audioPanelContainer != null)
+        {
+            audioBackButton.clicked += () =>
+            {
+                audioPanelContainer.AddToClassList("is-hidden");
+                settingsButtonsContainer.RemoveFromClassList("is-hidden");
+            };
+        }
+
+        if (backButton != null)
+        {
+            backButton.clicked += ShowMainMenu;
+        }
+
+        // Slider value changes
+        if (masterVolumeSlider != null)
+        {
+            masterVolumeSlider.RegisterValueChangedCallback(evt =>
+            {
+                PlayerPrefs.SetFloat("MasterVolume", evt.newValue);
+                PlayerPrefs.Save();
+                Debug.Log($"Master Volume Changed: {evt.newValue}");
+            });
+        }
+
+        if (musicVolumeSlider != null)
+        {
+            musicVolumeSlider.RegisterValueChangedCallback(evt =>
+            {
+                PlayerPrefs.SetFloat("MusicVolume", evt.newValue);
+                PlayerPrefs.Save();
+                Debug.Log($"Music Volume Changed: {evt.newValue}");
+            });
+        }
+
+        if (sfxVolumeSlider != null)
+        {
+            sfxVolumeSlider.RegisterValueChangedCallback(evt =>
+            {
+                PlayerPrefs.SetFloat("SFXVolume", evt.newValue);
+                PlayerPrefs.Save();
+                Debug.Log($"SFX Volume Changed: {evt.newValue}");
+            });
+        }
+    }
+
     private void OnPlayClicked()
     {
         ShowLevelSelection();
@@ -148,7 +234,7 @@ public class UIManager : MonoBehaviour
 
     private void OnSettingsClicked()
     {
-        Debug.Log("Settings Screen Clicked");
+        ShowSettings();
     }
 
     private void OnCreditsClicked()

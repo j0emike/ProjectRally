@@ -1,0 +1,111 @@
+.root-container {
+    background-color: rgb(22, 22, 22);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-settings {
+    -unity-font-definition: url("project://database/Assets/_Project/Fonts/Orbitron/Orbitron-VariableFont_wght%20SDF.asset?fileID=11400000&guid=831078679d699f44f956ac3100317fb1&type=2#Orbitron-VariableFont_wght SDF");
+    font-size: 56px;
+    border-radius: 5px;
+    word-spacing: 20px;
+    color: rgb(253, 202, 64);
+    -unity-text-align: middle-center;
+    margin: 3% 0 0;
+    padding: 8px;
+    background-color: rgb(17, 17, 17);
+    border-width: 4px;
+    border-color: rgb(253, 211, 93);
+    width: 87.6%;
+    max-width: 1310px;
+    align-self: center;
+}
+
+.settings-buttons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+}
+
+/* Audio Panel Styling */
+.audio-panel-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.settings-subtitle {
+    -unity-font-definition: url("project://database/Assets/_Project/Fonts/Orbitron/Orbitron-VariableFont_wght%20SDF.asset?fileID=11400000&guid=831078679d699f44f956ac3100317fb1&type=2#Orbitron-VariableFont_wght SDF");
+    font-size: 32px;
+    color: rgb(222, 222, 222);
+    margin-bottom: 40px;
+    -unity-text-align: middle-center;
+}
+
+.is-hidden {
+    display: none;
+}
+
+.slider-row {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    max-width: 90%;
+    margin-bottom: 25px;
+}
+
+.slider-label {
+    -unity-font-definition: url("project://database/Assets/_Project/Fonts/Orbitron/Orbitron-VariableFont_wght%20SDF.asset?fileID=11400000&guid=831078679d699f44f956ac3100317fb1&type=2#Orbitron-VariableFont_wght SDF");
+    font-size: 20px;
+    color: rgb(222, 222, 222);
+    margin-bottom: 12px;
+    align-self: flex-start;
+}
+
+/* Slider Overrides */
+.custom-slider {
+    width: 100%;
+    height: 40px;
+}
+
+.custom-slider .unity-base-slider__tracker {
+    background-color: rgb(40, 40, 40);
+    border-color: rgb(253, 211, 93);
+    border-width: 2px;
+    height: 12px;
+    border-radius: 6px;
+    top: 50%;
+    margin-top: -6px;
+}
+
+.custom-slider .unity-base-slider__dragger {
+    background-color: rgb(253, 202, 64);
+    border-color: rgb(17, 17, 17);
+    border-width: 3px;
+    width: 28px;
+    height: 28px;
+    border-radius: 14px;
+    top: 50%;
+    margin-top: -14px;
+    transition-property: scale, background-color;
+    transition-duration: 0.15s;
+}
+
+.custom-slider .unity-base-slider__dragger:hover {
+    scale: 1.25;
+    background-color: rgb(253, 211, 93);
+}
+
+.custom-slider .unity-base-slider__dragger:active {
+    scale: 1.1;
+    background-color: rgb(222, 222, 222);
+}

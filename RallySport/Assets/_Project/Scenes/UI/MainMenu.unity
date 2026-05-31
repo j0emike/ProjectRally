@@ -1371,6 +1371,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   mainMenuTemplate: {fileID: 9197481963319205126, guid: 3e1f1fabfba9a5546bc70bd075d3ece5, type: 3}
   levelSelectionTemplate: {fileID: 9197481963319205126, guid: f7c205df0a5e80c4dbe5ef35d22fd161, type: 3}
+  settingsTemplate: {fileID: 9197481963319205126, guid: 43c7fbda19c2203458f6fe91c1aef84f, type: 3}
 --- !u!1001 &1945623643
 PrefabInstance:
   m_ObjectHideFlags: 0
