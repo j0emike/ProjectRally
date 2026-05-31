@@ -8,12 +8,15 @@ public class UIManager : MonoBehaviour
     [SerializeField] private VisualTreeAsset mainMenuTemplate;
     [SerializeField] private VisualTreeAsset levelSelectionTemplate;
     [SerializeField] private VisualTreeAsset settingsTemplate;
+    [SerializeField] private VisualTreeAsset creditsTemplate;
+    [SerializeField] private VisualTreeAsset controlsTemplate;
 
     private UIDocument uiDocument;
     private VisualElement root;
 
     private VisualElement notificationOverlay;
     private IVisualElementScheduledItem notificationTimer;
+    private System.Action returnToScreenAction;
 
     private void Start()
     {
@@ -26,6 +29,9 @@ public class UIManager : MonoBehaviour
         }
 
         root = uiDocument.rootVisualElement;
+
+        // Apply saved master volume to real game volume on startup
+        AudioListener.volume = PlayerPrefs.GetFloat("MasterVolume", 0.8f);
         
         ShowMainMenu();
     }
@@ -69,8 +75,8 @@ public class UIManager : MonoBehaviour
         }
         if (settingsButton != null)
         {
-            settingsButton.clicked -= OnSettingsClicked;
-            settingsButton.clicked += OnSettingsClicked;
+            settingsButton.clicked -= OnSettingsClickedFromMainMenu;
+            settingsButton.clicked += OnSettingsClickedFromMainMenu;
         }
         if (creditsButton != null)
         {
@@ -105,8 +111,8 @@ public class UIManager : MonoBehaviour
         }
         if (settingsButton != null)
         {
-            settingsButton.clicked -= OnSettingsClicked;
-            settingsButton.clicked += OnSettingsClicked;
+            settingsButton.clicked -= OnSettingsClickedFromLevelSelection;
+            settingsButton.clicked += OnSettingsClickedFromLevelSelection;
         }
         if (exitGameButton != null)
         {
@@ -158,7 +164,7 @@ public class UIManager : MonoBehaviour
         // Menu Buttons
         var audioButton = root.Q<Button>("AudioButton");
         var controlsButton = root.Q<Button>("ControlsButton");
-        var backButton = root.Q<Button>("BackButton");
+        var closeSettingsButton = root.Q<Button>("CloseSettingsButton");
 
         // Audio Sub-panel Elements
         var audioBackButton = root.Q<Button>("AudioBackButton");
@@ -181,6 +187,11 @@ public class UIManager : MonoBehaviour
             };
         }
 
+        if (controlsButton != null)
+        {
+            controlsButton.clicked += () => ShowControls(ShowSettings);
+        }
+
         if (audioBackButton != null && settingsButtonsContainer != null && audioPanelContainer != null)
         {
             audioBackButton.clicked += () =>
@@ -190,9 +201,19 @@ public class UIManager : MonoBehaviour
             };
         }
 
-        if (backButton != null)
+        if (closeSettingsButton != null)
         {
-            backButton.clicked += ShowMainMenu;
+            closeSettingsButton.clicked += () =>
+            {
+                if (returnToScreenAction != null)
+                {
+                    returnToScreenAction.Invoke();
+                }
+                else
+                {
+                    ShowMainMenu();
+                }
+            };
         }
 
         // Slider value changes
@@ -202,6 +223,7 @@ public class UIManager : MonoBehaviour
             {
                 PlayerPrefs.SetFloat("MasterVolume", evt.newValue);
                 PlayerPrefs.Save();
+                AudioListener.volume = evt.newValue; // Apply real-time change to Unity global volume
                 Debug.Log($"Master Volume Changed: {evt.newValue}");
             });
         }
@@ -232,14 +254,64 @@ public class UIManager : MonoBehaviour
         ShowLevelSelection();
     }
 
-    private void OnSettingsClicked()
+    private void OnSettingsClickedFromMainMenu()
     {
+        returnToScreenAction = ShowMainMenu;
+        ShowSettings();
+    }
+
+    private void OnSettingsClickedFromLevelSelection()
+    {
+        returnToScreenAction = ShowLevelSelection;
         ShowSettings();
     }
 
     private void OnCreditsClicked()
     {
-        Debug.Log("Credits Clicked");
+        ShowCredits();
+    }
+
+    public void ShowCredits()
+    {
+        if (creditsTemplate == null)
+        {
+            Debug.LogError("CreditsTemplate is not assigned in UIManager!");
+            return;
+        }
+
+        SwitchView(creditsTemplate);
+
+        var closeCreditsButton = root.Q<Button>("CloseCreditsButton");
+        if (closeCreditsButton != null)
+        {
+            closeCreditsButton.clicked += ShowMainMenu;
+        }
+    }
+
+    public void ShowControls(System.Action onReturn)
+    {
+        if (controlsTemplate == null)
+        {
+            Debug.LogError("ControlsTemplate is not assigned in UIManager!");
+            return;
+        }
+
+        SwitchView(controlsTemplate);
+
+        var closeControlsButton = root.Q<Button>("CloseControlsButton");
+        if (closeControlsButton != null)
+        {
+            closeControlsButton.clicked += () => {
+                if (onReturn != null)
+                {
+                    onReturn.Invoke();
+                }
+                else
+                {
+                    ShowMainMenu();
+                }
+            };
+        }
     }
 
     private void OnExitClicked()

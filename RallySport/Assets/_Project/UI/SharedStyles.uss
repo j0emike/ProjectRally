@@ -1,3 +1,4 @@
+/* --- BUTTONS & SHADOWS --- */
 .button-shadow {
     background-color: rgb(253, 211, 93);
     border-radius: 0;
@@ -30,6 +31,51 @@
 .menu-button:disabled {
 }
 
+/* --- COMMON CONTAINER LAYOUTS --- */
+.root-container {
+    background-color: rgb(22, 22, 22);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+/* --- COMMON SCREEN HEADERS --- */
+.header-panel {
+    -unity-font-definition: url("project://database/Assets/_Project/Fonts/Orbitron/Orbitron-VariableFont_wght%20SDF.asset?fileID=11400000&guid=831078679d699f44f956ac3100317fb1&type=2#Orbitron-VariableFont_wght SDF");
+    font-size: 56px;
+    border-radius: 5px;
+    word-spacing: 20px;
+    color: rgb(253, 202, 64);
+    -unity-text-align: middle-center;
+    margin: 3% 0 0;
+    padding: 8px;
+    background-color: rgb(17, 17, 17);
+    border-width: 4px;
+    border-color: rgb(253, 211, 93);
+    width: 87.6%;
+    max-width: 1310px;
+    align-self: center;
+}
 
+/* --- COMMON PREMIUM SVG CLOSE BUTTONS --- */
+.close-btn {
+    background-image: url("project://database/Assets/_Project/Art/2D/Icons/close_icon.svg");
+    -unity-background-image-tint-color: rgb(253, 202, 64);
+    width: 60px;
+    height: 60px;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    transition-property: scale, -unity-background-image-tint-color;
+    transition-duration: 0.15s;
+}
 
+.close-btn:hover {
+    scale: 1.15;
+    -unity-background-image-tint-color: rgb(253, 211, 93);
+}
+
+.close-btn:active {
+    scale: 0.95;
+    -unity-background-image-tint-color: rgb(222, 222, 222);
+}
