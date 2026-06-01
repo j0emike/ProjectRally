@@ -48,8 +48,8 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Segments: 22.25
-    - _Speed: 1
+    - _Segments: 52.19
+    - _Speed: -0.8
     m_Colors:
     - _Vector2: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
