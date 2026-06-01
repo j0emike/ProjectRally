@@ -1,0 +1,25 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Project/UI/SharedStyles.uss"/>
+    <Style src="project://database/Assets/_Project/UI/Pause/PauseMenuStyles.uss"/>
+    
+    <ui:VisualElement name="RootContainer" class="root-container pause-bg" style="flex-grow: 1;">
+        <!-- Title -->
+        <ui:Label text="PAUSED" name="HeaderPause" class="header-panel"/>
+        
+        <!-- Main Pause Buttons -->
+        <ui:VisualElement name="PauseButtonsContainer" class="pause-buttons-container">
+            <ui:VisualElement class="button-shadow">
+                <ui:Button text="RESUME" name="ResumeButton" class="menu-button"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="button-shadow">
+                <ui:Button text="SETTINGS" name="SettingsButton" class="menu-button"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="button-shadow">
+                <ui:Button text="MAIN MENU" name="MainMenuButton" class="menu-button"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <!-- Dynamic Container for Settings & Controls -->
+        <ui:VisualElement name="SubPanelContainer" class="sub-panel-container is-hidden" style="flex-grow: 1; width: 100%; height: 100%;"/>
+    </ui:VisualElement>
+</ui:UXML>

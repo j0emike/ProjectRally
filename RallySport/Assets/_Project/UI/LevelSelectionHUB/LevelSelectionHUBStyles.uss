@@ -1,0 +1,320 @@
+.main-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.levels-container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 2% 5% 1%;
+    flex-grow: 1;
+}
+
+.levels-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    margin-bottom: 1.5%;
+}
+
+.level-container {
+    background-color: rgb(222, 222, 222);
+    width: 31%;
+    max-width: 420px;
+    min-width: 260px;
+    height: 320px;
+    border-radius: 15px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    flex-shrink: 1;
+    margin: 0 1.2%;
+    border-width: 0;
+    transition-property: scale;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out-cubic;
+}
+
+.level-container:hover {
+    scale: 1.04;
+    background-color: rgb(222, 222, 222);
+}
+
+.level-container:active {
+    scale: 0.96;
+}
+
+.level-img {
+    width: 100%;
+    height: 70%;
+    -unity-background-scale-mode: scale-and-crop;
+}
+
+.level-img-desert {
+    background-image: url("project://database/Assets/_Project/Art/2D/LevelsImages/DessertLevelImg.png?fileID=2800000&guid=471e207a957ef274c8f2267b4e44d493&type=3#DessertLevelImg");
+}
+
+.level-img-jungle {
+    background-image: url("project://database/Assets/_Project/Art/2D/LevelsImages/JungleLevelImg.png?fileID=2800000&guid=d615727ba6b70464a9ee48f15efa0fe9&type=3#JungleLevelImg");
+}
+
+.level-img-tundra {
+    background-image: url("project://database/Assets/_Project/Art/2D/LevelsImages/TundraLevelImg.png?fileID=2800000&guid=69091d8d83a933649a8284a2ef1b37d5&type=3#TundraLevelImg");
+}
+
+.level-img-forest {
+    background-image: url("project://database/Assets/_Project/Art/2D/LevelsImages/ForestLevelImg.png?fileID=2800000&guid=c1970a16059fbfd42a59c54becd9da4f&type=3#ForestLevelImg");
+}
+
+.level-img-snow {
+    background-image: url("project://database/Assets/_Project/Art/2D/LevelsImages/SnowLevelImg.png?fileID=2800000&guid=115282bff5598e041b360d4634001026&type=3#SnowLevelImg");
+}
+
+.level-button {
+    -unity-font-definition: url("project://database/Assets/_Project/Fonts/AlfaSlabOne/AlfaSlabOne-Regular%20SDF.asset?fileID=11400000&guid=924c06fc2ad1cc245b4a7fcc30131aa6&type=2#AlfaSlabOne-Regular SDF");
+    font-size: 38px;
+    width: 100%;
+    flex-grow: 1;
+    margin: 0;
+    border-radius: 0;
+    border-width: 0;
+    background-color: rgb(253, 202, 64);
+    color: rgb(17, 17, 17);
+    border-top-width: 8px;
+    border-top-color: rgb(222, 222, 222);
+    -unity-text-align: middle-center;
+}
+
+.level-lock-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(17, 17, 17, 0.65);
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+
+.level-lock-icon {
+    width: 60px;
+    height: 60px;
+    background-image: url("project://database/Assets/_Project/Art/2D/Icons/LockIcon.svg");
+    -unity-background-image-tint-color: rgb(222, 222, 222);
+}
+
+.level-container.is-locked {
+    background-color: rgb(60, 60, 60);
+}
+
+.level-container.is-locked:hover {
+    scale: 1;
+    background-color: rgb(60, 60, 60);
+}
+
+.level-container.is-locked:active {
+    scale: 1;
+}
+
+.level-container.is-locked .level-img {
+    -unity-background-image-tint-color: rgb(100, 100, 100);
+}
+
+.level-container.is-locked .level-lock-overlay {
+    display: flex;
+}
+
+.level-container.is-locked .level-button {
+    background-color: rgb(40, 40, 40);
+    color: rgb(130, 130, 130);
+    border-top-color: rgb(75, 75, 75);
+}
+
+.row-centered {
+    justify-content: center;
+}
+
+.menu-selection-container {
+  display: flex;
+  flex-direction: row;
+  width: 60%;
+  max-width: 900px;
+  min-width: 500px;
+  height: 80px;
+  align-self: center;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  background-color: rgb(17, 17, 17);
+  border-width: 3px;
+  border-color: rgb(253, 211, 93);
+  border-radius: 12px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.menu-btn {
+    flex-grow: 1;
+    height: 100%;
+    background-color: transparent;
+    border-width: 0;
+    margin: 0;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    transition-property: background-color, scale;
+    transition-duration: 0.2s;
+    transition-timing-function: ease-out-cubic;
+}
+
+.menu-btn:hover {
+    background-color: rgba(253, 211, 93, 0.08); 
+}
+
+.menu-btn:active {
+    scale: 0.96; 
+    background-color: rgba(253, 211, 93, 0.15);
+}
+
+.menu-btn-divider {
+    border-left-width: 3px;
+    border-left-color: rgb(253, 211, 93);
+}
+
+.menu-btn-text {
+    -unity-font-definition: url("project://database/Assets/_Project/Fonts/Orbitron/Orbitron-VariableFont_wght%20SDF.asset?fileID=11400000&guid=831078679d699f44f956ac3100317fb1&type=2#Orbitron-VariableFont_wght SDF");
+    font-size: 22px;
+    color: rgb(222, 222, 222);
+    -unity-text-align: middle-left;
+    transition-property: color;
+    transition-duration: 0.2s;
+}
+
+.menu-btn:hover .menu-btn-text {
+    color: rgb(253, 211, 93);
+}
+
+.menu-btn-icon {
+    width: 34px;
+    height: 34px;
+    margin-right: 12px;
+    margin-bottom: 0;
+    -unity-background-image-tint-color: rgb(222, 222, 222);
+    transition-property: -unity-background-image-tint-color;
+    transition-duration: 0.2s;
+}
+
+.menu-btn:hover .menu-btn-icon {
+    -unity-background-image-tint-color: rgb(253, 211, 93);
+}
+
+.settings-icon {
+    background-image: url("project://database/Assets/_Project/Art/2D/Icons/SettingsIcon.svg");
+}
+
+.mainmenu-icon {
+    background-image: url("project://database/Assets/_Project/Art/2D/Icons/MainMenuIcon.svg");
+}
+
+.exitgame-icon {
+    background-image: url("project://database/Assets/_Project/Art/2D/Icons/ExitGameIcon.svg");
+}
+
+/* --- Notification Pop-up --- */
+.notification-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-color: rgba(10, 10, 10, 0.85);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    display: none;
+    transition-property: opacity;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-out-cubic;
+}
+
+.notification-overlay.is-visible {
+    display: flex;
+    opacity: 1;
+}
+
+.notification-box {
+    background-color: rgb(22, 22, 22);
+    border-width: 4px;
+    border-color: rgb(253, 202, 64);
+    border-radius: 20px;
+    padding: 35px;
+    align-items: center;
+    justify-content: center;
+    width: 460px;
+    max-width: 90%;
+    scale: 0.8;
+    transition-property: scale;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-out-back;
+}
+
+.notification-overlay.is-visible .notification-box {
+    scale: 1;
+}
+
+.notification-icon {
+    width: 80px;
+    height: 80px;
+    background-image: url("project://database/Assets/_Project/Art/2D/Icons/LockIcon.svg");
+    -unity-background-image-tint-color: rgb(253, 202, 64);
+    margin-bottom: 20px;
+}
+
+.notification-title {
+    -unity-font-definition: url("project://database/Assets/_Project/Fonts/Orbitron/Orbitron-VariableFont_wght%20SDF.asset?fileID=11400000&guid=831078679d699f44f956ac3100317fb1&type=2#Orbitron-VariableFont_wght SDF");
+    font-size: 32px;
+    color: rgb(253, 202, 64);
+    margin-bottom: 15px;
+    -unity-text-align: middle-center;
+}
+
+.notification-message {
+    -unity-font-definition: url("project://database/Assets/_Project/Fonts/Orbitron/Orbitron-VariableFont_wght%20SDF.asset?fileID=11400000&guid=831078679d699f44f956ac3100317fb1&type=2#Orbitron-VariableFont_wght SDF");
+    font-size: 16px;
+    color: rgb(222, 222, 222);
+    margin-bottom: 25px;
+    -unity-text-align: middle-center;
+    white-space: normal;
+}
+
+.notification-close-btn {
+    -unity-font-definition: url("project://database/Assets/_Project/Fonts/AlfaSlabOne/AlfaSlabOne-Regular%20SDF.asset?fileID=11400000&guid=924c06fc2ad1cc245b4a7fcc30131aa6&type=2#AlfaSlabOne-Regular SDF");
+    font-size: 24px;
+    background-color: rgb(253, 202, 64);
+    color: rgb(17, 17, 17);
+    border-width: 0;
+    border-radius: 10px;
+    padding: 10px 40px;
+    transition-property: scale, background-color;
+    transition-duration: 0.15s;
+}
+
+.notification-close-btn:hover {
+    scale: 1.05;
+    background-color: rgb(253, 211, 93);
+}
+
+.notification-close-btn:active {
+    scale: 0.95;
+}
