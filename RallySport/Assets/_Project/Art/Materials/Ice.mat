@@ -126,6 +126,8 @@ Material:
     - _MudAmount: 0.6
     - _NoiseScale: 20
     - _OcclusionStrength: 1
+    - _OffSetX: 0
+    - _OffSetY: 0
     - _Parallax: 0.005
     - _QueueControl: 0
     - _QueueOffset: 0
