@@ -1,0 +1,27 @@
+.pause-bg {
+    background-color: rgba(17, 17, 17, 0.88); /* Deep translucent overlay to see the blurred game background */
+    justify-content: center;
+}
+
+.pause-buttons-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+    flex-grow: 1;
+    width: 100%;
+}
+
+.sub-panel-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgb(22, 22, 22); /* Solid background when viewing submenus for readability */
+}
+
+.is-hidden {
+    display: none;
+}

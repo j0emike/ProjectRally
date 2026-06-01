@@ -1,0 +1,42 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Project/UI/Controls/ControlsStyles.uss"/>
+    <Style src="project://database/Assets/_Project/UI/SharedStyles.uss"/>
+    <ui:VisualElement name="RootContainer" class="root-container" style="flex-grow: 1;">
+        <ui:Label text="Controls" name="HeaderControls" class="header-panel"/>
+        
+        <ui:VisualElement name="ControlsListContainer" class="controls-list-container">
+            <!-- WASD Row -->
+            <ui:VisualElement class="control-row">
+                <ui:VisualElement class="keys-container-wasd">
+                    <ui:VisualElement class="wasd-top-row">
+                        <ui:VisualElement class="key-icon key-w"/>
+                    </ui:VisualElement>
+                    <ui:VisualElement class="wasd-bottom-row">
+                        <ui:VisualElement class="key-icon key-a"/>
+                        <ui:VisualElement class="key-icon key-s"/>
+                        <ui:VisualElement class="key-icon key-d"/>
+                    </ui:VisualElement>
+                </ui:VisualElement>
+                <ui:Label text="Movement" class="control-label"/>
+            </ui:VisualElement>
+
+            <!-- Space Row -->
+            <ui:VisualElement class="control-row">
+                <ui:VisualElement class="keys-container">
+                    <ui:VisualElement class="key-icon key-space"/>
+                </ui:VisualElement>
+                <ui:Label text="HandBrake" class="control-label"/>
+            </ui:VisualElement>
+
+            <!-- Shift Row -->
+            <ui:VisualElement class="control-row">
+                <ui:VisualElement class="keys-container">
+                    <ui:VisualElement class="key-icon key-shift"/>
+                </ui:VisualElement>
+                <ui:Label text="Drifting" class="control-label"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:Button name="CloseControlsButton" class="close-btn close-controls-btn"/>
+    </ui:VisualElement>
+</ui:UXML>

@@ -7,6 +7,7 @@ public class DestructibleWall : MonoBehaviour
     [SerializeField] private GameObject bounceVFXPrefab;
     private ParticleSystem destructionVFX;
     private GameObject bounceVFX;
+
     public void BreakWall(Vector3 pos, Vector3 normalPos)
     {
         Debug.Log("Wall Destroyed");

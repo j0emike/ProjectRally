@@ -1,0 +1,41 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Project/UI/Credits/CreditsStyles.uss"/>
+    <Style src="project://database/Assets/_Project/UI/SharedStyles.uss"/>
+    <ui:VisualElement name="RootContainer" class="root-container" style="flex-grow: 1;">
+        <ui:Label text="Credits" name="HeaderCredits" class="header-panel"/>
+        
+        <ui:VisualElement name="CreditsListContainer" class="credits-list-container">
+            <ui:VisualElement class="credit-row">
+                <ui:Label text="Lead Programmer" class="credit-role"/>
+                <ui:Label text="Jose Peña" class="credit-name"/>
+            </ui:VisualElement>
+            
+            <ui:VisualElement class="credit-row">
+                <ui:Label text="Technical Artist" class="credit-role"/>
+                <ui:Label text="Jose Sierra López" class="credit-name"/>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="credit-row">
+                <ui:Label text="Level Designer" class="credit-role"/>
+                <ui:Label text="Gonzalo Robles Muñoz" class="credit-name"/>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="credit-row">
+                <ui:Label text="Game Designer" class="credit-role"/>
+                <ui:Label text="Sebastián Selvas" class="credit-name"/>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="credit-row">
+                <ui:Label text="Sound Design" class="credit-role"/>
+                <ui:Label text="Esteban Chavez" class="credit-name"/>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="credit-row">
+                <ui:Label text="UI" class="credit-role"/>
+                <ui:Label text="Zarek Saleme" class="credit-name"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+
+        <ui:Button name="CloseCreditsButton" class="close-btn close-credits-btn"/>
+    </ui:VisualElement>
+</ui:UXML>
