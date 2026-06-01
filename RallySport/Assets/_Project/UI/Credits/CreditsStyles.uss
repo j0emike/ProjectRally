@@ -1,0 +1,45 @@
+/* Credits Layout */
+
+.credits-list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+.credit-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px 24px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(253, 211, 93, 0.2);
+    margin-bottom: 8px;
+}
+
+.credit-role {
+    -unity-font-definition: url("project://database/Assets/_Project/Fonts/Orbitron/Orbitron-VariableFont_wght%20SDF.asset?fileID=11400000&guid=831078679d699f44f956ac3100317fb1&type=2#Orbitron-VariableFont_wght SDF");
+    font-size: 22px;
+    color: rgb(253, 202, 64);
+    -unity-font-style: bold;
+    width: 45%;
+    -unity-text-align: middle-left;
+}
+
+.credit-name {
+    -unity-font-definition: url("project://database/Assets/_Project/Fonts/Orbitron/Orbitron-VariableFont_wght%20SDF.asset?fileID=11400000&guid=831078679d699f44f956ac3100317fb1&type=2#Orbitron-VariableFont_wght SDF");
+    font-size: 24px;
+    color: rgb(235, 235, 235);
+    width: 50%;
+    -unity-text-align: middle-right;
+}
+
+.close-credits-btn {
+    margin-bottom: 40px;
+}

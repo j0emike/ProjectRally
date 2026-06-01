@@ -199,4 +199,9 @@ public class KartController : MonoBehaviour
         Debug.Log("Bouncing"); 
         velocity = BouncingVelocity;
     }
+
+    public void ResetVelocity()
+    {
+        velocity = Vector3.zero;
+    }
 }
