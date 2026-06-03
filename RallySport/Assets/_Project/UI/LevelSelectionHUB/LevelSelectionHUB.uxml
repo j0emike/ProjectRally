@@ -1,0 +1,81 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Project/UI/SharedStyles.uss?fileID=7433441132597879392&amp;guid=84d83a6b86e55c64d98c96216e6e7e52&amp;type=3#SharedStyles"/>
+    <Style src="project://database/Assets/_Project/UI/LevelSelectionHUB/LevelSelectionHUBStyles.uss?fileID=7433441132597879392&amp;guid=79f14caae614d0c48b92226e3f83972f&amp;type=3#LevelSelectionHUBStyles"/>
+    <ui:VisualElement name="RootContainer" class="root-container" style="opacity: 1; background-color: rgb(22, 22, 22);">
+        <ui:VisualElement name="MainContent" class="main-content">
+            <ui:Label text="Level Selection" name="HeaderLevelHub" class="header-panel"/>
+            
+            <ui:VisualElement name="MenuSelectionContainer" class="menu-selection-container">
+                <ui:Button name="SettingsButton" class="menu-btn">
+                    <ui:VisualElement class="menu-btn-icon settings-icon" picking-mode="Ignore"/>
+                    <ui:Label text="SETTINGS" class="menu-btn-text" picking-mode="Ignore"/>
+                </ui:Button>
+                <ui:Button name="GoBackMenuButton" class="menu-btn menu-btn-divider">
+                    <ui:VisualElement class="menu-btn-icon mainmenu-icon" picking-mode="Ignore"/>
+                    <ui:Label text="MAIN MENU" class="menu-btn-text" picking-mode="Ignore"/>
+                </ui:Button>
+                <ui:Button name="ExitGameButton" class="menu-btn menu-btn-divider">
+                    <ui:VisualElement class="menu-btn-icon exitgame-icon" picking-mode="Ignore"/>
+                    <ui:Label text="EXIT GAME" class="menu-btn-text" picking-mode="Ignore"/>
+                </ui:Button>
+            </ui:VisualElement>
+
+            <ui:VisualElement name="LevelsContainer" class="levels-container">
+                <ui:VisualElement class="levels-row">
+                    <ui:Button name="LevelContainer1" class="level-container">
+                        <ui:VisualElement name="LevelImg" picking-mode="Ignore" class="level-img level-img-desert">
+                            <ui:VisualElement class="level-lock-overlay" picking-mode="Ignore">
+                                <ui:VisualElement class="level-lock-icon" picking-mode="Ignore"/>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:Label text="DESERT" picking-mode="Ignore" class="level-button"/>
+                    </ui:Button>
+                    <ui:Button name="LevelContainer2" class="level-container">
+                        <ui:VisualElement name="LevelImg" picking-mode="Ignore" class="level-img level-img-jungle">
+                            <ui:VisualElement class="level-lock-overlay" picking-mode="Ignore">
+                                <ui:VisualElement class="level-lock-icon" picking-mode="Ignore"/>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:Label text="JUNGLE" picking-mode="Ignore" class="level-button"/>
+                    </ui:Button>
+                    <ui:Button name="LevelContainer3" class="level-container is-locked">
+                        <ui:VisualElement name="LevelImg" picking-mode="Ignore" class="level-img level-img-tundra">
+                            <ui:VisualElement class="level-lock-overlay" picking-mode="Ignore">
+                                <ui:VisualElement class="level-lock-icon" picking-mode="Ignore"/>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:Label text="TUNDRA" picking-mode="Ignore" class="level-button"/>
+                    </ui:Button>
+                </ui:VisualElement>
+                <ui:VisualElement class="levels-row row-centered">
+                    <ui:Button name="LevelContainer4" class="level-container is-locked">
+                        <ui:VisualElement name="LevelImg" picking-mode="Ignore" class="level-img level-img-forest">
+                            <ui:VisualElement class="level-lock-overlay" picking-mode="Ignore">
+                                <ui:VisualElement class="level-lock-icon" picking-mode="Ignore"/>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:Label text="FOREST" picking-mode="Ignore" class="level-button"/>
+                    </ui:Button>
+                    <ui:Button name="LevelContainer5" class="level-container is-locked">
+                        <ui:VisualElement name="LevelImg" picking-mode="Ignore" class="level-img level-img-snow">
+                            <ui:VisualElement class="level-lock-overlay" picking-mode="Ignore">
+                                <ui:VisualElement class="level-lock-icon" picking-mode="Ignore"/>
+                            </ui:VisualElement>
+                        </ui:VisualElement>
+                        <ui:Label text="SNOW" picking-mode="Ignore" class="level-button"/>
+                    </ui:Button>
+                </ui:VisualElement>
+        </ui:VisualElement>
+        </ui:VisualElement>
+        
+        
+        <ui:VisualElement name="NotificationOverlay" class="notification-overlay">
+            <ui:VisualElement name="NotificationBox" class="notification-box">
+                <ui:VisualElement class="notification-icon" />
+                <ui:Label text="LEVEL LOCKED" class="notification-title" />
+                <ui:Label text="Complete the previous level to unlock this track!" class="notification-message" />
+                <ui:Button name="NotificationCloseButton" text="OK" class="notification-close-btn" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

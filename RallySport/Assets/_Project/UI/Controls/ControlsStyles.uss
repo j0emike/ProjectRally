@@ -1,0 +1,100 @@
+/* Controls Layout */
+
+.controls-list-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+.control-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 16px 24px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(253, 211, 93, 0.2);
+    margin-bottom: 12px;
+}
+
+.keys-container-wasd {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 220px;
+}
+
+.wasd-top-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 6px;
+}
+
+.wasd-bottom-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 180px;
+}
+
+.keys-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 220px;
+}
+
+.key-icon {
+    width: 50px;
+    height: 50px;
+    background-color: rgba(0, 0, 0, 0);
+    -unity-background-scale-mode: scale-to-fit;
+    -unity-background-image-tint-color: rgb(253, 202, 64);
+}
+
+.key-w {
+    background-image: url("project://database/Assets/_Project/Art/Keys/keyboard_w.svg");
+}
+
+.key-a {
+    background-image: url("project://database/Assets/_Project/Art/Keys/keyboard_a.svg");
+}
+
+.key-s {
+    background-image: url("project://database/Assets/_Project/Art/Keys/keyboard_s.svg");
+}
+
+.key-d {
+    background-image: url("project://database/Assets/_Project/Art/Keys/keyboard_d.svg");
+}
+
+.key-space {
+    background-image: url("project://database/Assets/_Project/Art/Keys/keyboard_space.svg");
+    width: 160px;
+}
+
+.key-shift {
+    background-image: url("project://database/Assets/_Project/Art/Keys/keyboard_shift.svg");
+    width: 100px;
+}
+
+.control-label {
+    -unity-font-definition: url("project://database/Assets/_Project/Fonts/Orbitron/Orbitron-VariableFont_wght%20SDF.asset?fileID=11400000&guid=831078679d699f44f956ac3100317fb1&type=2#Orbitron-VariableFont_wght SDF");
+    font-size: 26px;
+    color: rgb(235, 235, 235);
+    width: 50%;
+    -unity-text-align: middle-right;
+}
+
+.close-controls-btn {
+    margin-bottom: 40px;
+}

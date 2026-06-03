@@ -1,0 +1,42 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Project/UI/Settings/SettingsStyles.uss?fileID=7433441132597879392&amp;guid=9e6721bdaa3a10943adf2b7ca752cdf1&amp;type=3#SettingsStyles"/>
+    <Style src="project://database/Assets/_Project/UI/SharedStyles.uss?fileID=7433441132597879392&amp;guid=84d83a6b86e55c64d98c96216e6e7e52&amp;type=3#SharedStyles"/>
+    <ui:VisualElement name="RootContainer" class="root-container" style="flex-grow: 1;">
+        <ui:Label text="Settings" name="HeaderSettings" class="header-panel"/>
+        
+        <!-- Main Settings Buttons -->
+        <ui:VisualElement name="SettingsButtonsContainer" class="settings-buttons-container">
+            <ui:VisualElement class="button-shadow">
+                <ui:Button text="Audio" name="AudioButton" class="menu-button"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="button-shadow">
+                <ui:Button text="Controls" name="ControlsButton" class="menu-button"/>
+            </ui:VisualElement>
+            <ui:Button name="CloseSettingsButton" class="close-btn close-settings-btn"/>
+        </ui:VisualElement>
+
+        <!-- Audio Settings Panel (Hidden by default) -->
+        <ui:VisualElement name="AudioPanelContainer" class="audio-panel-container is-hidden">
+            <ui:Label text="Audio Options" class="settings-subtitle"/>
+            
+            <ui:VisualElement class="slider-row">
+                <ui:Label text="Master Volume" class="slider-label"/>
+                <ui:Slider name="MasterVolumeSlider" low-value="0" high-value="1" value="0.8" class="custom-slider"/>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="slider-row">
+                <ui:Label text="Music Volume" class="slider-label"/>
+                <ui:Slider name="MusicVolumeSlider" low-value="0" high-value="1" value="0.7" class="custom-slider"/>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="slider-row">
+                <ui:Label text="SFX Volume" class="slider-label"/>
+                <ui:Slider name="SFXVolumeSlider" low-value="0" high-value="1" value="0.9" class="custom-slider"/>
+            </ui:VisualElement>
+
+            <ui:VisualElement class="button-shadow" style="margin-top: 40px;">
+                <ui:Button text="Back" name="AudioBackButton" class="menu-button"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
