@@ -69,8 +69,8 @@ public class PlayerRespawn : MonoBehaviour
 
         if (Spawner.LastSpawn != null)
         {
-            spawnPos = Spawner.LastSpawn.transform.position;
-            spawnRot = Spawner.LastSpawn.transform.rotation;
+            spawnPos = Spawner.LastSpawn.SpawnPosition;
+            spawnRot = Spawner.LastSpawn.SpawnRotation;
         }
 
         
