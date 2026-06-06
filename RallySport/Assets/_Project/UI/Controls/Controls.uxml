@@ -25,14 +25,6 @@
                 <ui:VisualElement class="keys-container">
                     <ui:VisualElement class="key-icon key-space"/>
                 </ui:VisualElement>
-                <ui:Label text="HandBrake" class="control-label"/>
-            </ui:VisualElement>
-
-            <!-- Shift Row -->
-            <ui:VisualElement class="control-row">
-                <ui:VisualElement class="keys-container">
-                    <ui:VisualElement class="key-icon key-shift"/>
-                </ui:VisualElement>
                 <ui:Label text="Drifting" class="control-label"/>
             </ui:VisualElement>
         </ui:VisualElement>

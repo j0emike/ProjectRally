@@ -1,0 +1,82 @@
+.level-end-bg {
+    background-color: rgba(17, 17, 17, 0.94);
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+}
+
+.level-end-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.level-end-subtitle {
+    -unity-font-definition: url("project://database/Assets/_Project/Fonts/Orbitron/Orbitron-VariableFont_wght%20SDF.asset?fileID=11400000&guid=831078679d699f44f956ac3100317fb1&type=2#Orbitron-VariableFont_wght SDF");
+    font-size: 28px;
+    color: rgb(253, 211, 93);
+    margin-top: 25px;
+    -unity-text-align: middle-center;
+    letter-spacing: 2px;
+}
+
+.header-lose-color {
+    color: rgb(238, 77, 77);
+    border-color: rgb(238, 77, 77);
+}
+
+.level-end-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+    width: 100%;
+}
+
+.button-shadow-wide {
+    width: 500px;
+    max-width: 95%;
+}
+
+.btn-long-text {
+    font-size: 30px; 
+    -unity-text-align: middle-center;
+}
+
+.is-hidden {
+    display: none;
+}
+
+.gameplay-hud {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.timer-label {
+    -unity-font-definition: url("project://database/Assets/_Project/Fonts/Orbitron/Orbitron-VariableFont_wght%20SDF.asset?fileID=11400000&guid=831078679d699f44f956ac3100317fb1&type=2#Orbitron-VariableFont_wght SDF");
+    font-size: 32px;
+    color: rgb(253, 202, 64);
+    background-color: rgba(17, 17, 17, 0.85);
+    border-width: 3px;
+    border-color: rgb(253, 211, 93);
+    border-radius: 8px;
+    letter-spacing: 1.5px;
+    width: 380px;
+    height: 60px;
+    -unity-text-align: middle-center;
+    padding: 0;
+}
+

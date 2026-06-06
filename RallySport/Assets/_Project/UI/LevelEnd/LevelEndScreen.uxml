@@ -1,0 +1,33 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/_Project/UI/SharedStyles.uss"/>
+    <Style src="project://database/Assets/_Project/UI/LevelEnd/LevelEndStyles.uss"/>
+    <ui:VisualElement name="FrostOverlay" class="frost-overlay" picking-mode="Ignore"/>
+    
+    <ui:VisualElement name="GameplayHUD" class="gameplay-hud" picking-mode="Ignore">
+        <ui:Label text="TIEMPO: 00.00" name="TimerLabel" class="timer-label" picking-mode="Ignore"/>
+    </ui:VisualElement>
+
+    <ui:VisualElement name="LevelEndContainer" class="level-end-bg" style="display: none;">
+        <!-- Win Panel -->
+        <ui:VisualElement name="WinPanel" class="level-end-panel is-hidden">
+            <ui:Label text="VICTORIA" name="HeaderWin" class="header-panel"/>
+            <ui:Label text="¡NIVEL COMPLETADO!" name="SubtitleWin" class="level-end-subtitle"/>
+        </ui:VisualElement>
+
+        <!-- Lose Panel -->
+        <ui:VisualElement name="LosePanel" class="level-end-panel is-hidden">
+            <ui:Label text="DERROTA" name="HeaderLose" class="header-panel header-lose-color"/>
+            <ui:Label text="¡TE HAS QUEDADO SIN TIEMPO!" name="SubtitleLose" class="level-end-subtitle"/>
+        </ui:VisualElement>
+
+        <!-- Common Buttons -->
+        <ui:VisualElement name="LevelEndButtons" class="level-end-buttons">
+            <ui:VisualElement class="button-shadow">
+                <ui:Button text="Reintentar" name="RetryButton" class="menu-button"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="button-shadow button-shadow-wide">
+                <ui:Button text="Volver a Selección de Niveles" name="LevelSelectionButton" class="menu-button btn-long-text"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
