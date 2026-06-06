@@ -289,10 +289,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::FloorTypes
   detectionPoint: {fileID: 3744044087508272107}
   detectionRadius: 0.5
-  detectionDistance: 0.5
   surfaceLayers:
     serializedVersion: 2
-    m_Bits: 961
+    m_Bits: 449
   basicSurface:
     surfaceName: Basic
     normalTraction: 0.92
