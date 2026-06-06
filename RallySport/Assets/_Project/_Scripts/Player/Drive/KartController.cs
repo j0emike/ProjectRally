@@ -38,6 +38,7 @@ public class KartController : MonoBehaviour
     private Vector2 moveInput;
     private bool driftPressed;
     private bool brakePressed;
+    private bool isAutoDrifting;
 
     // VELOCITY
     private Vector3 velocity;
@@ -59,17 +60,36 @@ public class KartController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
+        if (isAutoDrifting) return;
         moveInput = context.ReadValue<Vector2>();
     }
 
     public void OnDrift(InputAction.CallbackContext context)
     {
+        if (isAutoDrifting) return;
         driftPressed = context.ReadValueAsButton();
     }
 
     public void OnBrake(InputAction.CallbackContext context)
     {
+        if (isAutoDrifting) return;
         brakePressed = context.ReadValueAsButton();
+    }
+
+    public void StartAutoDrifting()
+    {
+        isAutoDrifting = true;
+        driftPressed = true;
+        brakePressed = false;
+        moveInput = new Vector2(1f, 1f); // Steer right, accelerate forward
+    }
+
+    public void StopAutoDrifting()
+    {
+        isAutoDrifting = false;
+        driftPressed = false;
+        moveInput = Vector2.zero;
+        ResetVelocity();
     }
 
     // =========================

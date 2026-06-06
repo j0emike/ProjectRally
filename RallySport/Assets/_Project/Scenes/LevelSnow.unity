@@ -24248,6 +24248,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8231811018970815444, guid: c6a245cabbefac94fa7e4227756da6dc, type: 3}
+      propertyPath: _winDelay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8231811018970815444, guid: c6a245cabbefac94fa7e4227756da6dc, type: 3}
       propertyPath: _levelTimeLimit
       value: 30
       objectReference: {fileID: 0}

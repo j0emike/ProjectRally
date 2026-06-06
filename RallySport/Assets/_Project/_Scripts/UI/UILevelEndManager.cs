@@ -5,10 +5,13 @@ using UnityEngine.SceneManagement;
 public class UILevelEndManager : MonoBehaviour
 {
     public static UILevelEndManager Instance { get; private set; }
+    public bool IsLevelOver => _isLevelOver;
 
     [Header("Level Configuration")]
     [Tooltip("Time limit in seconds. Set to 0 or negative for no time limit.")]
     [SerializeField] private float _levelTimeLimit = 60f;
+    [Tooltip("Delay in seconds between crossing the finish line and showing the Win screen.")]
+    [SerializeField] private float _winDelay = 2.0f;
 
     private UIDocument _uiDocument;
     private VisualElement _root;
@@ -154,6 +157,21 @@ public class UILevelEndManager : MonoBehaviour
     public void WinLevel()
     {
         if (_isLevelOver) return;
+        StartCoroutine(WinLevelCoroutine());
+    }
+
+    private System.Collections.IEnumerator WinLevelCoroutine()
+    {
+        _isLevelOver = true; // Stop timer immediately and prevent double triggers
+
+        // Enable auto drifting on the kart to do donuts!
+        if (_playerKart != null)
+        {
+            _playerKart.StartAutoDrifting();
+        }
+
+        yield return new WaitForSeconds(_winDelay);
+
         EndLevel(true);
     }
 
@@ -166,18 +184,27 @@ public class UILevelEndManager : MonoBehaviour
     private void EndLevel(bool didWin)
     {
         _isLevelOver = true;
-        Time.timeScale = 0f;
 
         // Disable pausing
         if (_pauseManager != null) _pauseManager.enabled = false;
 
-        // Disable player controls
-        if (_playerKart != null)
+        if (!didWin)
         {
-            _playerKart.ResetVelocity();
-            _playerKart.enabled = false;
+            Time.timeScale = 0f;
+
+            // Disable player controls on defeat
+            if (_playerKart != null)
+            {
+                _playerKart.ResetVelocity();
+                _playerKart.enabled = false;
+            }
+            if (_playerCharacterController != null) _playerCharacterController.enabled = false;
         }
-        if (_playerCharacterController != null) _playerCharacterController.enabled = false;
+        else
+        {
+            // On victory, we keep the kart auto-drifting infinitely in the background.
+            // So we DO NOT stop the time scale, nor do we disable the KartController component.
+        }
 
         // Setup Cursor
         UnityEngine.Cursor.lockState = CursorLockMode.None;
