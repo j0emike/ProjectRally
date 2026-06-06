@@ -11,6 +11,8 @@
 *.physicsMaterial2D merge=unityyamlmerge eol=lf
 *.physicMaterial merge=unityyamlmerge eol=lf
 *.asset merge=unityyamlmerge eol=lf
+# Treat TerrainData assets as binary to prevent corruption by line-ending conversion or merge tool
+*TerrainData_*.asset binary
 *.meta merge=unityyamlmerge eol=lf
 *.controller merge=unityyamlmerge eol=lf
 

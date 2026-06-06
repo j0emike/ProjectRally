@@ -62,23 +62,23 @@
 }
 
 .level-img-desert {
-    background-image: url("project://database/Assets/_Project/Art/2D/LevelsImages/DessertLevelImg.png?fileID=2800000&guid=471e207a957ef274c8f2267b4e44d493&type=3#DessertLevelImg");
+    background-image: url("project://database/Assets/_Project/Art/2D/LevelImages/img_dessert.png");
 }
 
 .level-img-jungle {
-    background-image: url("project://database/Assets/_Project/Art/2D/LevelsImages/JungleLevelImg.png?fileID=2800000&guid=d615727ba6b70464a9ee48f15efa0fe9&type=3#JungleLevelImg");
+    background-image: url("project://database/Assets/_Project/Art/2D/LevelImages/img_jungle.png");
 }
 
 .level-img-tundra {
-    background-image: url("project://database/Assets/_Project/Art/2D/LevelsImages/TundraLevelImg.png?fileID=2800000&guid=69091d8d83a933649a8284a2ef1b37d5&type=3#TundraLevelImg");
+    background-image: url("project://database/Assets/_Project/Art/2D/LevelImages/img_tundra.png");
 }
 
 .level-img-forest {
-    background-image: url("project://database/Assets/_Project/Art/2D/LevelsImages/ForestLevelImg.png?fileID=2800000&guid=c1970a16059fbfd42a59c54becd9da4f&type=3#ForestLevelImg");
+    background-image: url("project://database/Assets/_Project/Art/2D/LevelImages/img_forest.png");
 }
 
 .level-img-snow {
-    background-image: url("project://database/Assets/_Project/Art/2D/LevelsImages/SnowLevelImg.png?fileID=2800000&guid=115282bff5598e041b360d4634001026&type=3#SnowLevelImg");
+    background-image: url("project://database/Assets/_Project/Art/2D/LevelImages/img_snow.png");
 }
 
 .level-button {
@@ -109,7 +109,7 @@
 .level-lock-icon {
     width: 60px;
     height: 60px;
-    background-image: url("project://database/Assets/_Project/Art/2D/Icons/LockIcon.svg");
+    background-image: url("project://database/Assets/_Project/Art/2D/IconsSVG/LockIcon.svg");
     -unity-background-image-tint-color: rgb(222, 222, 222);
 }
 
@@ -220,15 +220,15 @@
 }
 
 .settings-icon {
-    background-image: url("project://database/Assets/_Project/Art/2D/Icons/SettingsIcon.svg");
+    background-image: url("project://database/Assets/_Project/Art/2D/IconsSVG/SettingsIcon.svg");
 }
 
 .mainmenu-icon {
-    background-image: url("project://database/Assets/_Project/Art/2D/Icons/MainMenuIcon.svg");
+    background-image: url("project://database/Assets/_Project/Art/2D/IconsSVG/MainMenuIcon.svg");
 }
 
 .exitgame-icon {
-    background-image: url("project://database/Assets/_Project/Art/2D/Icons/ExitGameIcon.svg");
+    background-image: url("project://database/Assets/_Project/Art/2D/IconsSVG/ExitGameIcon.svg");
 }
 
 /* --- Notification Pop-up --- */
@@ -276,7 +276,7 @@
 .notification-icon {
     width: 80px;
     height: 80px;
-    background-image: url("project://database/Assets/_Project/Art/2D/Icons/LockIcon.svg");
+    background-image: url("project://database/Assets/_Project/Art/2D/IconsSVG/LockIcon.svg");
     -unity-background-image-tint-color: rgb(253, 202, 64);
     margin-bottom: 20px;
 }
