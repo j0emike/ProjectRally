@@ -47,9 +47,11 @@ GameObject:
   - component: {fileID: 8945701590114530435}
   - component: {fileID: 6788494086874009876}
   - component: {fileID: 1248902065157039459}
+  - component: {fileID: 3128317427447713029}
+  - component: {fileID: 2360026039527454221}
   m_Layer: 0
   m_Name: Carro
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -193,7 +195,7 @@ MonoBehaviour:
   maxSpeed: 20
   reverseSpeed: 8
   brakeForce: 40
-  steeringPower: 120
+  steeringPower: 200
   driftSteeringMultiplier: 1.4
   normalTraction: 0.92
   _deceleration: 0
@@ -313,6 +315,36 @@ MonoBehaviour:
     normalTraction: 0.75
     driftTraction: 0.65
     deceleration: 20
+--- !u!114 &3128317427447713029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5173504183314062238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f7da71e246a18d4cb1f33f29c35f875, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::KartCollisionHandler
+  _bounceForce: 0
+  _minSpeedToDestroy: 0
+--- !u!114 &2360026039527454221
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5173504183314062238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00828c81242b3be46b1fede0c923d1ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerRespawn
+  _destructionFXPrefab: {fileID: 4271568640609787098, guid: a38fcb027d7d5014496a021fdfe75207, type: 3}
+  _timeToSpawn: 2
+  _maxOffRoadTime: 0
+  _maxFallDistance: 5
 --- !u!1 &9161197700335646670
 GameObject:
   m_ObjectHideFlags: 0
