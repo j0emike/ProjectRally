@@ -41,6 +41,7 @@ public class PlayerRespawn : MonoBehaviour
     public void Die()
     {
         if (_isRespawning) return;
+        if (UILevelEndManager.Instance != null && UILevelEndManager.Instance.IsLevelOver) return;
 
         // Print a warning with the stack trace so we can see exactly what triggered the death
         Debug.LogWarning($"[PlayerRespawn] Die() was called! Stack Trace:\n{System.Environment.StackTrace}");
@@ -117,6 +118,8 @@ public class PlayerRespawn : MonoBehaviour
 
     private void CheckOffRoad()
     {
+        if (UILevelEndManager.Instance != null && UILevelEndManager.Instance.IsLevelOver) return;
+
         Vector3 origin = transform.position + Vector3.up * 1f;
         bool isAboveRoad = false;
 

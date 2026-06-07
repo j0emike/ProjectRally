@@ -33,7 +33,17 @@ public class UIManager : MonoBehaviour
         // Apply saved master volume to real game volume on startup
         AudioListener.volume = PlayerPrefs.GetFloat("MasterVolume", 0.8f);
         
-        ShowMainMenu();
+        // If returning from a level, direct the player directly to Level Selection
+        if (PlayerPrefs.GetInt("ShowLevelSelection", 0) == 1)
+        {
+            PlayerPrefs.SetInt("ShowLevelSelection", 0);
+            PlayerPrefs.Save();
+            ShowLevelSelection();
+        }
+        else
+        {
+            ShowMainMenu();
+        }
     }
 
     private void SwitchView(VisualTreeAsset template)
