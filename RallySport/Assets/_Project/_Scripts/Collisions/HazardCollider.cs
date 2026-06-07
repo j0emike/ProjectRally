@@ -8,6 +8,8 @@ public class HazardCollider : MonoBehaviour
         {
             if (collider.TryGetComponent<PlayerRespawn>(out PlayerRespawn respawn))
             {
+                AudioManager.Source?.PlayCrashSFX();
+                AudioManager.Source?.StopVelocitySFX();
                 respawn.Die();
             }
         }

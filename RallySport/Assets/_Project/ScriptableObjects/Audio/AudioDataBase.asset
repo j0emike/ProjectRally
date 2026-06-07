@@ -23,3 +23,19 @@ MonoBehaviour:
     audioName: MainMenuSong
   - audio: {fileID: 8300000, guid: 4a1e9b94dd753e948b81bed28022ae05, type: 3}
     audioName: ChangeBettwenButtonsv1
+  - audio: {fileID: 8300000, guid: 7f11e73d1d98a934189fc5374820665e, type: 3}
+    audioName: KartIdle
+  - audio: {fileID: 8300000, guid: 859c738474b17bc4fad6fff7134bef1d, type: 3}
+    audioName: KartAcceleration
+  - audio: {fileID: 8300000, guid: 99b455389995d6b4f871dc3925ff2132, type: 3}
+    audioName: KartVelocity
+  - audio: {fileID: 8300000, guid: c6cb0b88442512b4cad8273ba55c8aee, type: 3}
+    audioName: KartBreaks
+  - audio: {fileID: 8300000, guid: f18d8dd22876a24499e5b8704241d13c, type: 3}
+    audioName: KartCrash
+  - audio: {fileID: 8300000, guid: 5248f272c01c4bb40a64796dde63f152, type: 3}
+    audioName: GlassBreak
+  - audio: {fileID: 8300000, guid: 26f6e445f83784d459305fdb8fc83659, type: 3}
+    audioName: KartIce
+  - audio: {fileID: 8300000, guid: 9e24cc2a99788bc4a98253a90d505c50, type: 3}
+    audioName: KartSand
