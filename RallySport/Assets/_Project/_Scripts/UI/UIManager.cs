@@ -11,6 +11,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private VisualTreeAsset creditsTemplate;
     [SerializeField] private VisualTreeAsset controlsTemplate;
 
+    [Header("Level Scene Configuration")]
+    [Tooltip("List of scene names corresponding to each level button in order (1 to 5).")]
+    [SerializeField] private string[] levelSceneNames = new string[] { "Level1", "LevelSnow", "Level3", "Level4", "Level5" };
+
     private UIDocument uiDocument;
     private VisualElement root;
 
@@ -30,10 +34,8 @@ public class UIManager : MonoBehaviour
 
         root = uiDocument.rootVisualElement;
 
-        // Apply saved master volume to real game volume on startup
         AudioListener.volume = PlayerPrefs.GetFloat("MasterVolume", 0.8f);
         
-        // If returning from a level, direct the player directly to Level Selection
         if (PlayerPrefs.GetInt("ShowLevelSelection", 0) == 1)
         {
             PlayerPrefs.SetInt("ShowLevelSelection", 0);
@@ -117,7 +119,10 @@ public class UIManager : MonoBehaviour
         if (goBackMenuButton != null)
         {
             goBackMenuButton.clicked -= ShowMainMenu;
-            goBackMenuButton.clicked += ShowMainMenu;
+            goBackMenuButton.clicked += () => {
+                AudioManager.Source?.SelectButton();
+                ShowMainMenu();
+            };
         }
         if (settingsButton != null)
         {
@@ -135,8 +140,10 @@ public class UIManager : MonoBehaviour
 
         if (closeButton != null && notificationOverlay != null)
         {
-            closeButton.clicked -= HideNotification;
-            closeButton.clicked += HideNotification;
+            closeButton.clicked += () => {
+                AudioManager.Source?.SelectButton();
+                HideNotification();
+            };
         }
 
         for (int i = 1; i <= 5; i++)
@@ -147,11 +154,17 @@ public class UIManager : MonoBehaviour
             {
                 if (levelContainer.ClassListContains("is-locked"))
                 {
-                    levelContainer.clicked += () => OnLevelLockedClicked(levelIndex);
+                    levelContainer.clicked += () => {
+                        AudioManager.Source?.SelectButton();
+                        OnLevelLockedClicked(levelIndex);
+                    };
                 }
                 else
                 {
-                    levelContainer.clicked += () => LoadLevel(levelIndex);
+                    levelContainer.clicked += () => {
+                        AudioManager.Source?.SelectButton();
+                        LoadLevel(levelIndex);
+                    };
                 }
             }
         }
@@ -167,31 +180,29 @@ public class UIManager : MonoBehaviour
 
         SwitchView(settingsTemplate);
 
-        // Core Containers
         var settingsButtonsContainer = root.Q<VisualElement>("SettingsButtonsContainer");
         var audioPanelContainer = root.Q<VisualElement>("AudioPanelContainer");
 
-        // Menu Buttons
         var audioButton = root.Q<Button>("AudioButton");
         var controlsButton = root.Q<Button>("ControlsButton");
         var closeSettingsButton = root.Q<Button>("CloseSettingsButton");
 
-        // Audio Sub-panel Elements
         var audioBackButton = root.Q<Button>("AudioBackButton");
         var masterVolumeSlider = root.Q<Slider>("MasterVolumeSlider");
         var musicVolumeSlider = root.Q<Slider>("MusicVolumeSlider");
         var sfxVolumeSlider = root.Q<Slider>("SFXVolumeSlider");
 
-        // Load saved values
+       
         if (masterVolumeSlider != null) masterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume", 0.8f);
         if (musicVolumeSlider != null) musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume", 0.7f);
         if (sfxVolumeSlider != null) sfxVolumeSlider.value = PlayerPrefs.GetFloat("SFXVolume", 0.9f);
 
-        // Submenu navigation
+       
         if (audioButton != null && settingsButtonsContainer != null && audioPanelContainer != null)
         {
             audioButton.clicked += () =>
             {
+                AudioManager.Source?.SelectButton();
                 settingsButtonsContainer.AddToClassList("is-hidden");
                 audioPanelContainer.RemoveFromClassList("is-hidden");
             };
@@ -199,13 +210,17 @@ public class UIManager : MonoBehaviour
 
         if (controlsButton != null)
         {
-            controlsButton.clicked += () => ShowControls(ShowSettings);
+            controlsButton.clicked += () => {
+                AudioManager.Source?.SelectButton();
+                ShowControls(ShowSettings);
+            };
         }
 
         if (audioBackButton != null && settingsButtonsContainer != null && audioPanelContainer != null)
         {
             audioBackButton.clicked += () =>
             {
+                AudioManager.Source?.SelectButton();
                 audioPanelContainer.AddToClassList("is-hidden");
                 settingsButtonsContainer.RemoveFromClassList("is-hidden");
             };
@@ -215,6 +230,7 @@ public class UIManager : MonoBehaviour
         {
             closeSettingsButton.clicked += () =>
             {
+                AudioManager.Source?.SelectButton();
                 if (returnToScreenAction != null)
                 {
                     returnToScreenAction.Invoke();
@@ -226,7 +242,7 @@ public class UIManager : MonoBehaviour
             };
         }
 
-        // Slider value changes
+       
         if (masterVolumeSlider != null)
         {
             masterVolumeSlider.RegisterValueChangedCallback(evt =>
@@ -261,23 +277,27 @@ public class UIManager : MonoBehaviour
 
     private void OnPlayClicked()
     {
+        AudioManager.Source?.PlayButton();
         ShowLevelSelection();
     }
 
     private void OnSettingsClickedFromMainMenu()
     {
+        AudioManager.Source?.SelectButton();
         returnToScreenAction = ShowMainMenu;
         ShowSettings();
     }
 
     private void OnSettingsClickedFromLevelSelection()
     {
+        AudioManager.Source?.SelectButton();
         returnToScreenAction = ShowLevelSelection;
         ShowSettings();
     }
 
     private void OnCreditsClicked()
     {
+        AudioManager.Source?.SelectButton();
         ShowCredits();
     }
 
@@ -294,7 +314,10 @@ public class UIManager : MonoBehaviour
         var closeCreditsButton = root.Q<Button>("CloseCreditsButton");
         if (closeCreditsButton != null)
         {
-            closeCreditsButton.clicked += ShowMainMenu;
+            closeCreditsButton.clicked += () => {
+                AudioManager.Source?.SelectButton();
+                ShowMainMenu();
+            };
         }
     }
 
@@ -312,6 +335,7 @@ public class UIManager : MonoBehaviour
         if (closeControlsButton != null)
         {
             closeControlsButton.clicked += () => {
+                AudioManager.Source?.SelectButton();
                 if (onReturn != null)
                 {
                     onReturn.Invoke();
@@ -326,6 +350,7 @@ public class UIManager : MonoBehaviour
 
     private void OnExitClicked()
     {
+        AudioManager.Source?.ExitButton();
         Debug.Log("Exit Game Clicked");
         #if UNITY_EDITOR
         UnityEditor.EditorApplication.isPlaying = false;
@@ -367,7 +392,24 @@ public class UIManager : MonoBehaviour
 
     private void LoadLevel(int levelIndex)
     {
-        Debug.Log($"Loading Level {levelIndex}...");
-        SceneManager.LoadScene("Level" + levelIndex);
+        int arrayIndex = levelIndex - 1;
+        string sceneName = "";
+
+        if (levelSceneNames != null && arrayIndex >= 0 && arrayIndex < levelSceneNames.Length)
+        {
+            sceneName = levelSceneNames[arrayIndex];
+        }
+
+        if (string.IsNullOrEmpty(sceneName))
+        {
+            sceneName = "Level" + levelIndex;
+            Debug.LogWarning($"Level scene name not configured for index {levelIndex}. Falling back to default: {sceneName}");
+        }
+        else
+        {
+            Debug.Log($"Loading Level {levelIndex} ({sceneName})...");
+        }
+
+        SceneManager.LoadScene(sceneName);
     }
 }

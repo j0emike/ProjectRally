@@ -31,12 +31,12 @@
                         <ui:Label text="DESERT" picking-mode="Ignore" class="level-button"/>
                     </ui:Button>
                     <ui:Button name="LevelContainer2" class="level-container">
-                        <ui:VisualElement name="LevelImg" picking-mode="Ignore" class="level-img level-img-jungle">
+                        <ui:VisualElement name="LevelImg" picking-mode="Ignore" class="level-img level-img-snow">
                             <ui:VisualElement class="level-lock-overlay" picking-mode="Ignore">
                                 <ui:VisualElement class="level-lock-icon" picking-mode="Ignore"/>
                             </ui:VisualElement>
                         </ui:VisualElement>
-                        <ui:Label text="JUNGLE" picking-mode="Ignore" class="level-button"/>
+                        <ui:Label text="SNOW" picking-mode="Ignore" class="level-button"/>
                     </ui:Button>
                     <ui:Button name="LevelContainer3" class="level-container is-locked">
                         <ui:VisualElement name="LevelImg" picking-mode="Ignore" class="level-img level-img-tundra">
@@ -44,7 +44,7 @@
                                 <ui:VisualElement class="level-lock-icon" picking-mode="Ignore"/>
                             </ui:VisualElement>
                         </ui:VisualElement>
-                        <ui:Label text="TUNDRA" picking-mode="Ignore" class="level-button"/>
+                        <ui:Label text="COMING SOON" picking-mode="Ignore" class="level-button"/>
                     </ui:Button>
                 </ui:VisualElement>
                 <ui:VisualElement class="levels-row row-centered">
@@ -54,15 +54,15 @@
                                 <ui:VisualElement class="level-lock-icon" picking-mode="Ignore"/>
                             </ui:VisualElement>
                         </ui:VisualElement>
-                        <ui:Label text="FOREST" picking-mode="Ignore" class="level-button"/>
+                        <ui:Label text="COMING SOON" picking-mode="Ignore" class="level-button"/>
                     </ui:Button>
                     <ui:Button name="LevelContainer5" class="level-container is-locked">
-                        <ui:VisualElement name="LevelImg" picking-mode="Ignore" class="level-img level-img-snow">
+                        <ui:VisualElement name="LevelImg" picking-mode="Ignore" class="level-img level-img-jungle">
                             <ui:VisualElement class="level-lock-overlay" picking-mode="Ignore">
                                 <ui:VisualElement class="level-lock-icon" picking-mode="Ignore"/>
                             </ui:VisualElement>
                         </ui:VisualElement>
-                        <ui:Label text="SNOW" picking-mode="Ignore" class="level-button"/>
+                        <ui:Label text="COMING SOON" picking-mode="Ignore" class="level-button"/>
                     </ui:Button>
                 </ui:VisualElement>
         </ui:VisualElement>
@@ -72,8 +72,8 @@
         <ui:VisualElement name="NotificationOverlay" class="notification-overlay">
             <ui:VisualElement name="NotificationBox" class="notification-box">
                 <ui:VisualElement class="notification-icon" />
-                <ui:Label text="LEVEL LOCKED" class="notification-title" />
-                <ui:Label text="Complete the previous level to unlock this track!" class="notification-message" />
+                <ui:Label text="COMING SOON" class="notification-title" />
+                <ui:Label text="This track is currently under development!" class="notification-message" />
                 <ui:Button name="NotificationCloseButton" text="OK" class="notification-close-btn" />
             </ui:VisualElement>
         </ui:VisualElement>

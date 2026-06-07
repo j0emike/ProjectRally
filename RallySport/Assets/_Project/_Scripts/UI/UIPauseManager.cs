@@ -41,9 +41,18 @@ public class UIPauseManager : MonoBehaviour
         var settingsButton = root.Q<Button>("SettingsButton");
         var mainMenuButton = root.Q<Button>("MainMenuButton");
 
-        if (resumeButton != null) resumeButton.clicked += () => ResumeGame();
-        if (settingsButton != null) settingsButton.clicked += () => ShowSettingsInPause();
-        if (mainMenuButton != null) mainMenuButton.clicked += () => ReturnToMainMenu();
+        if (resumeButton != null) resumeButton.clicked += () => {
+            AudioManager.Source?.SelectButton();
+            ResumeGame();
+        };
+        if (settingsButton != null) settingsButton.clicked += () => {
+            AudioManager.Source?.SelectButton();
+            ShowSettingsInPause();
+        };
+        if (mainMenuButton != null) mainMenuButton.clicked += () => {
+            AudioManager.Source?.SelectButton();
+            ReturnToMainMenu();
+        };
 
         root.style.display = DisplayStyle.None;
     }
@@ -201,6 +210,7 @@ public class UIPauseManager : MonoBehaviour
         {
             audioBtn.clicked += () =>
             {
+                AudioManager.Source?.SelectButton();
                 settingsButtonsSub.AddToClassList("is-hidden");
                 audioPanelSub.RemoveFromClassList("is-hidden");
             };
@@ -210,6 +220,7 @@ public class UIPauseManager : MonoBehaviour
         {
             audioBackBtn.clicked += () =>
             {
+                AudioManager.Source?.SelectButton();
                 audioPanelSub.AddToClassList("is-hidden");
                 settingsButtonsSub.RemoveFromClassList("is-hidden");
             };
@@ -217,12 +228,18 @@ public class UIPauseManager : MonoBehaviour
 
         if (controlsBtn != null)
         {
-            controlsBtn.clicked += () => ShowControlsInPause(() => ShowSettingsInPause());
+            controlsBtn.clicked += () => {
+                AudioManager.Source?.SelectButton();
+                ShowControlsInPause(() => ShowSettingsInPause());
+            };
         }
 
         if (closeSettingsBtn != null)
         {
-            closeSettingsBtn.clicked += () => CloseSubPanel();
+            closeSettingsBtn.clicked += () => {
+                AudioManager.Source?.SelectButton();
+                CloseSubPanel();
+            };
         }
     }
 
@@ -246,6 +263,7 @@ public class UIPauseManager : MonoBehaviour
         {
             closeControlsBtn.clicked += () =>
             {
+                AudioManager.Source?.SelectButton();
                 if (onReturn != null)
                 {
                     onReturn.Invoke();

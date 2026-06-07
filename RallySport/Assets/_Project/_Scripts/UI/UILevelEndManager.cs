@@ -219,6 +219,7 @@ public class UILevelEndManager : MonoBehaviour
 
     private void RestartLevel()
     {
+        AudioManager.Source?.PlayButton();
         Time.timeScale = 1f;
         Scene activeScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(activeScene.name);
@@ -226,6 +227,7 @@ public class UILevelEndManager : MonoBehaviour
 
     private void ReturnToLevelSelection()
     {
+        AudioManager.Source?.SelectButton();
         Time.timeScale = 1f;
         
         PlayerPrefs.SetInt("ShowLevelSelection", 1);

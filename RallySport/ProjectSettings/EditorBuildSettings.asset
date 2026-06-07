@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/_Project/Scenes/UI/MainMenu.unity
     guid: b4a2f4f7cfb7a9a4db5a867f0763c859
   - enabled: 1
-    path: Assets/_Project/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/_Project/Scenes/DesertRoad.unity
+    guid: 80ba8d73d69ac124b9ab3b15895431bb
+  - enabled: 1
+    path: Assets/_Project/Scenes/LevelSnow.unity
+    guid: ec20022f8738d0548a2f927283db2937
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
