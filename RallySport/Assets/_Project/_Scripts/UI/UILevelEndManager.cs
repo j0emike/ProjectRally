@@ -143,6 +143,14 @@ public class UILevelEndManager : MonoBehaviour
         }
     }
 
+    public void ToggleGameplayHUD(bool show)
+    {
+        if (_gameplayHUD != null)
+        {
+            _gameplayHUD.style.display = (show && _hasTimer) ? DisplayStyle.Flex : DisplayStyle.None;
+        }
+    }
+
     public void WinLevel()
     {
         if (_isLevelOver) return;

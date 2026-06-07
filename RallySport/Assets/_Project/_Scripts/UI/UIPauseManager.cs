@@ -95,6 +95,11 @@ public class UIPauseManager : MonoBehaviour
             subPanelContainer.Clear();
         }
 
+        if (UILevelEndManager.Instance != null)
+        {
+            UILevelEndManager.Instance.ToggleGameplayHUD(false);
+        }
+
         UnityEngine.Cursor.lockState = CursorLockMode.None;
         UnityEngine.Cursor.visible = true;
     }
@@ -107,6 +112,11 @@ public class UIPauseManager : MonoBehaviour
         Time.timeScale = 1f;
         
         root.style.display = DisplayStyle.None;
+
+        if (UILevelEndManager.Instance != null)
+        {
+            UILevelEndManager.Instance.ToggleGameplayHUD(true);
+        }
 
         UnityEngine.Cursor.lockState = CursorLockMode.Locked;
         UnityEngine.Cursor.visible = false;
