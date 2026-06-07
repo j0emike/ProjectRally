@@ -6,26 +6,44 @@ public class AudioManager : Singleton<IAudioSource>, IAudioSource
 {
     [SerializeField] private AudioSource _musicAudioSource;
     [SerializeField] private AudioSource _sfxAudioSource;
+    [SerializeField] private AudioSource _engineAudioSource;
     [SerializeField] private AudioDataBase _audioDataBase;
     [SerializeField] private AudioMixer _audioMixer;
 
     public void ButtonSFX() => PlayOneShot(""); // => (Para escribir en una misma linea funciones que se pueden delegar) *Ahorra lineas de codigo*
-    public void ChangeBetweenButtons() => PlayOneShot("");
-    public void ExitButton() => PlayOneShot("");
-    public void PlayButton() => PlayOneShot("");
+    public void ChangeBetweenButtons() => PlayOneShot("ChangeBettwenButtonsv1");
+    public void ExitButton() => PlayOneShot("ExitButton");
+    public void PlayButton() => PlayOneShot("PlayButton");
     public void SelectButton() => PlayOneShot("SelectButton");
 
+    // SFX para el carro
+    public void PlayIdleSFX() => PlayOneShot("KartIdle");
+    public void PlayAccelerationSFX() => PlayOneShot("KartAcceleration");
+
+    public void PlayVelocitySFX()
+    {
+        if(_engineAudioSource.isPlaying) return;
+
+        _engineAudioSource.clip = _audioDataBase.GetAudio("KartVelocity");
+        _engineAudioSource.Play();
+    }
+
+    public void StopVelocitySFX()
+    {
+        if (!_engineAudioSource.isPlaying) return;
+
+        _engineAudioSource.Stop();
+    }
+
+    public void PlayBreaksSFX() => PlayOneShot("KartBreaks");
+    public void PlayCrashSFX() => PlayOneShot("KartCrash");
+    public void PlayGlassBreakSFX() => PlayOneShot("GlassBreak");
+    public void PlayMoveOnIceSFX() => PlayOneShot("KartIce");
+    public void PlayMoveOnSandSFX() => PlayOneShot("KartSand");
 
     public void PlayLevelMusic(string audioName)
     {
-        AudioClip MusicAudioClip = _audioDataBase.GetAudio(audioName);
-        if (MusicAudioClip != null)
-        {
-
-            return;
-        }
-        _musicAudioSource.clip = MusicAudioClip;
-        _musicAudioSource.loop = true;
+        _musicAudioSource.clip = _audioDataBase.GetAudio(audioName);
         _musicAudioSource.Play();
     }
 
@@ -55,6 +73,17 @@ public interface IAudioSource
     void SelectButton();
     void ExitButton();
     void PlayButton();
+
+    void PlayIdleSFX();
+    void PlayAccelerationSFX();
+    void PlayVelocitySFX();
+    void PlayBreaksSFX();
+    void PlayCrashSFX();
+    void PlayGlassBreakSFX();
+    void PlayMoveOnIceSFX();
+    void PlayMoveOnSandSFX();
+
+    void StopVelocitySFX();
 
 
     //------- Volume Controls -------//
