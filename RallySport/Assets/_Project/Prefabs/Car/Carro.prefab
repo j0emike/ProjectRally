@@ -192,10 +192,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::KartController
   acceleration: 25
-  maxSpeed: 20
+  maxSpeed: 40
   reverseSpeed: 8
-  brakeForce: 40
-  steeringPower: 200
+  brakeForce: 15
+  steeringPower: 120
   driftSteeringMultiplier: 1.4
   normalTraction: 0.92
   _deceleration: 0
