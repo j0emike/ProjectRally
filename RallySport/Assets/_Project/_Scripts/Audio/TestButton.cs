@@ -8,7 +8,9 @@ public class TestButton : MonoBehaviour
 
     void Awake()
     {
+
         _button = GetComponent<Button>();
+        
     }
 
     void Start()
@@ -20,5 +22,17 @@ public class TestButton : MonoBehaviour
     void SelectButton()
     {
         AudioManager.Source.SelectButton();
+    }
+    void ExitButton()
+    {
+        AudioManager.Source.ExitButton();
+    }
+    void StartButton()
+    {
+        AudioManager.Source.PlayButton();
+    }
+    void ChangeBettwenButtons()
+    {
+        AudioManager.Source.ChangeBetweenButtons();
     }
 }

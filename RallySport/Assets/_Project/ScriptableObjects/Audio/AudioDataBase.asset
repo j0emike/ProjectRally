@@ -15,3 +15,11 @@ MonoBehaviour:
   _audioData:
   - audio: {fileID: 8300000, guid: 84550849fa43e5d489f4f370c2cc6344, type: 3}
     audioName: SelectButton
+  - audio: {fileID: 8300000, guid: 18826bb52513dee4e9ee207afa896db4, type: 3}
+    audioName: ExitButton
+  - audio: {fileID: 8300000, guid: 81cd27f0f13b27544a157bff47af6052, type: 3}
+    audioName: PlayButton
+  - audio: {fileID: 8300000, guid: fe414ecaf4329c64c890c59b17f0bf90, type: 3}
+    audioName: MainMenuSong
+  - audio: {fileID: 8300000, guid: 4a1e9b94dd753e948b81bed28022ae05, type: 3}
+    audioName: ChangeBettwenButtonsv1

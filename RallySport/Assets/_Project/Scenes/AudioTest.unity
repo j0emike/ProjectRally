@@ -621,6 +621,7 @@ MonoBehaviour:
   _musicAudioSource: {fileID: 1618399478}
   _sfxAudioSource: {fileID: 712915980}
   _audioDataBase: {fileID: 11400000, guid: 8d2a6135661255b4c8706fad2a2b120e, type: 2}
+  _audioMixer: {fileID: 24100000, guid: e707f1af371686c459730469ad9923e6, type: 2}
 --- !u!4 &1251570494
 Transform:
   m_ObjectHideFlags: 0
@@ -803,7 +804,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 3248697936204869685, guid: e707f1af371686c459730469ad9923e6, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_Resource: {fileID: 8300000, guid: fe414ecaf4329c64c890c59b17f0bf90, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

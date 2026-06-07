@@ -1,42 +1,42 @@
+using System;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class AudioManager : Singleton<IAudioSource>, IAudioSource
 {
     [SerializeField] private AudioSource _musicAudioSource;
     [SerializeField] private AudioSource _sfxAudioSource;
     [SerializeField] private AudioDataBase _audioDataBase;
+    [SerializeField] private AudioMixer _audioMixer;
 
     public void ButtonSFX() => PlayOneShot(""); // => (Para escribir en una misma linea funciones que se pueden delegar) *Ahorra lineas de codigo*
-
     public void ChangeBetweenButtons() => PlayOneShot("");
-
     public void ExitButton() => PlayOneShot("");
-
     public void PlayButton() => PlayOneShot("");
+    public void SelectButton() => PlayOneShot("SelectButton");
 
 
     public void PlayLevelMusic(string audioName)
     {
- 
+        AudioClip MusicAudioClip = _audioDataBase.GetAudio(audioName);
+        if (MusicAudioClip != null)
+        {
+
+            return;
+        }
+        _musicAudioSource.clip = MusicAudioClip;
+        _musicAudioSource.loop = true;
+        _musicAudioSource.Play();
     }
 
-    public void SelectButton() => PlayOneShot("SelectButton");
+    public void SetMasterVolume(float volume) => SetMixerVolume("MasterVolume", volume);
 
-    public void SetMasterVolume(float volume)
+    public void SetMusicVolume(float volume) => SetMixerVolume("MusicVolume", volume);
+    public void SetSFXVolume(float volume) => SetMixerVolume("SFXVolume", volume);
+    private void SetMixerVolume(string v, float volume)
     {
- 
+        throw new NotImplementedException();
     }
-
-    public void SetMusicVolume(float volume)
-    {
- 
-    }
-
-    public void SetSFXVolume(float volume)
-    {
- 
-    }
-
     private void PlayOneShot(string audioName) // Funcion para evitar redundancia de codigo, ya que se repite en varios metodos
     {
         _sfxAudioSource.PlayOneShot(_audioDataBase.GetAudio(audioName));
