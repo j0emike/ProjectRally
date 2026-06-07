@@ -62,18 +62,23 @@ public class KartController : MonoBehaviour
     {
         if (isAutoDrifting) return;
         moveInput = context.ReadValue<Vector2>();
+        
     }
 
     public void OnDrift(InputAction.CallbackContext context)
     {
         if (isAutoDrifting) return;
         driftPressed = context.ReadValueAsButton();
+        // AudioManager.Source?.StopVelocitySFX();
+        AudioManager.Source?.PlayBreaksSFX();
     }
 
     public void OnBrake(InputAction.CallbackContext context)
     {
         if (isAutoDrifting) return;
         brakePressed = context.ReadValueAsButton();
+        AudioManager.Source?.StopVelocitySFX();
+        AudioManager.Source?.PlayBreaksSFX();
     }
 
     public void StartAutoDrifting()
@@ -214,6 +219,7 @@ public class KartController : MonoBehaviour
     private void MoveKart()
     {
         controller.Move(velocity * Time.deltaTime);
+        AudioManager.Source?.PlayVelocitySFX();
     }
 
     // =========================

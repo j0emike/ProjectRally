@@ -10,6 +10,8 @@ public class DestructibleWall : MonoBehaviour
 
     public void BreakWall(Vector3 pos, Vector3 normalPos)
     {
+        AudioManager.Source?.PlayGlassBreakSFX();
+        AudioManager.Source?.StopVelocitySFX();
         Debug.Log("Wall Destroyed");
         StartCoroutine(BreakWallCorutine(pos, normalPos));
     }
@@ -40,6 +42,8 @@ public class DestructibleWall : MonoBehaviour
     private IEnumerator BounceWallCorutine(Vector3 pos, Vector3 normalPos)
     {
         Debug.Log("Wall Bounced");
+        AudioManager.Source?.PlayCrashSFX();
+        AudioManager.Source?.StopVelocitySFX();
         if (bounceVFX == null)
         {
             bounceVFX = Instantiate(bounceVFXPrefab, pos, Quaternion.LookRotation(normalPos));
